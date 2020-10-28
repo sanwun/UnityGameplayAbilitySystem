@@ -5,7 +5,7 @@ using Unity.Mathematics;
 using UnityEditor;
 using UnityEngine;
 
-namespace GamplayAbilitySystem.GameplayTags
+namespace GameplayAbilitySystem.GameplayTags
 {
     [CreateAssetMenu(fileName = "GameplayTag", menuName = "Gameplay Ability System/Gameplay Tags/Gameplay Tag", order = 1)]
     public partial class GameplayTagScriptableObject : ScriptableObject

@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace GamplayAbilitySystem.GameplayTags.Components
+namespace GameplayAbilitySystem.GameplayTags.Components
 {
     public struct GameplayTagBufferElement : IBufferElementData
     {
