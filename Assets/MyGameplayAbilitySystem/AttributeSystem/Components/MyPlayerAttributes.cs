@@ -1,5 +1,8 @@
+using System;
+
 namespace MyGameplayAbilitySystem
 {
+    [Serializable]
     public struct MyPlayerAttributes<T>
     where T : struct
     {
