@@ -159,7 +159,7 @@ namespace Gamekit3D
             }, new GameplayAbilitySystem.AttributeSystem.Components.GameplayEffectContextComponent()
             {
                 Source = Entity.Null,
-                Target = this.attributeEntity
+                Target = Entity.Null
             });
 
             // Create a poison effect, that does 1 damage every 1s tick

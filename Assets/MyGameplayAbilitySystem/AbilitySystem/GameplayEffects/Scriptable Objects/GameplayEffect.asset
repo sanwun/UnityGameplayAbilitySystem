@@ -14,6 +14,52 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EffectId: 0
   DurationPolicy: 0
+  AttributeModifiers:
+  - InstantAttributes:
+      AddValue:
+        Health: -1
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+      MultiplyValue:
+        Health: 0
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+      DivideValue:
+        Health: 0
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+    DurationalAttributes:
+      AddValue:
+        Health: 0
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+      MultiplyValue:
+        Health: 0
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+      DivideValue:
+        Health: 0
+        MaxHealth: 0
+        Mana: 0
+        MaxMana: 0
+        Speed: 0
+    SourceRequiredTags: []
+    SourceBlockedTags: []
+    TargetRequiredTags: []
+    TargetBlockedTags: []
+  Period:
+    Period: 0
+    ExecuteOnApplication: 0
   AssetTags: []
   GrantedTags: []
   OngoingTagRequirements: []

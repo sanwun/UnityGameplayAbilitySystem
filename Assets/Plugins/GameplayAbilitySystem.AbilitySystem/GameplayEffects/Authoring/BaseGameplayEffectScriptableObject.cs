@@ -15,9 +15,17 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
     where TInstantAttributesModifier : IAttributeModifier
     where TDurationalAttributesModifier : IAttributeModifier
     {
-        public int EffectId;
-        public EDurationPolicy DurationPolicy;
+        [Header("Effect Unique ID")]
+        [Tooltip("Unique ID for this Effect")]
+        public uint EffectId;
+
+
+        [Header("Effect Specification")]
+        public DurationPolicy Duration;
         public List<Modifiers> AttributeModifiers;
+        public PeriodPolicy Period;
+
+        [Header("Effect Tags")]
         public GameplayTagScriptableObject[] AssetTags;
         public GameplayTagScriptableObject[] GrantedTags;
         public GameplayTagScriptableObject[] OngoingTagRequirements;
@@ -35,6 +43,20 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
             public GameplayTagScriptableObject[] SourceBlockedTags;
             public GameplayTagScriptableObject[] TargetRequiredTags;
             public GameplayTagScriptableObject[] TargetBlockedTags;
+        }
+
+        [Serializable]
+        public struct PeriodPolicy
+        {
+            public float Period;
+            public bool ExecuteOnApplication;
+        }
+
+        [Serializable]
+        public struct DurationPolicy
+        {
+            public EDurationPolicy DurationType;
+            public float Duration;
         }
     }
 

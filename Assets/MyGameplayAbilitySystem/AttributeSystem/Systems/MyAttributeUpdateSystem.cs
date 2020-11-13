@@ -34,7 +34,7 @@ namespace MyGameplayAbilitySystem
             {
                 var defaultAttributes = new AttributeValues()
                 {
-                    BaseValue = new MyPlayerAttributes<uint> { Health = 100, Mana = 10, MaxHealth = 100, MaxMana = 10, Speed = 5 }
+                    BaseValue = new MyPlayerAttributes<float> { Health = 100, Mana = 10, MaxHealth = 100, MaxMana = 10, Speed = 5 }
                 };
 
                 var entity = CreatePlayerEntity(EntityManager, defaultAttributes);
@@ -95,13 +95,13 @@ namespace MyGameplayAbilitySystem
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static uint ModifyValues(uint Base, float Add, float Multiply, float Divide)
+        static uint ModifyValues(float Base, float Add, float Multiply, float Divide)
         {
             return (uint)(((Base + Add) * (Multiply + 1)) / (Divide + 1));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static void ClampAttributes(ref MyPlayerAttributes<uint> Attributes)
+        static void ClampAttributes(ref MyPlayerAttributes<float> Attributes)
         {
             Attributes.MaxHealth = math.max(0, Attributes.MaxHealth);
             Attributes.MaxMana = math.max(0, Attributes.MaxMana);
