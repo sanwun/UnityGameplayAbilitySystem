@@ -31,28 +31,8 @@ namespace MyGameplayAbilitySystem
             if (Operator == EMyAttributeModifierOperator.None) return;
 
             ref var attributeGroup = ref GetAttributeCollection(ref attributeModifier);
-
-            switch (Attribute)
-            {
-                case EMyPlayerAttribute.Health:
-                    attributeGroup.Health += Value;
-                    break;
-                case EMyPlayerAttribute.MaxHealth:
-                    attributeGroup.MaxHealth += Value;
-                    break;
-                case EMyPlayerAttribute.Mana:
-                    attributeGroup.Mana += Value;
-                    break;
-                case EMyPlayerAttribute.MaxMana:
-                    attributeGroup.MaxMana += Value;
-                    break;
-                case EMyPlayerAttribute.Speed:
-                    attributeGroup.Speed += Value;
-                    break;
-                default:
-                    return;
-            }
-
+            attributeGroup[Attribute] += Value;
         }
+
     }
 }

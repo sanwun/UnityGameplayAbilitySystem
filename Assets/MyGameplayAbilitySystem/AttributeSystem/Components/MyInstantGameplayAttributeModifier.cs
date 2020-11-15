@@ -19,6 +19,8 @@ namespace MyGameplayAbilitySystem
                     return ref attributeModifier.MultiplyValue;
                 case EMyAttributeModifierOperator.Divide:
                     return ref attributeModifier.DivideValue;
+                case EMyAttributeModifierOperator.Override:
+                    return ref attributeModifier.OverrideValue;
                 default:
                     // Should never get here
                     return ref attributeModifier.AddValue;
@@ -32,27 +34,7 @@ namespace MyGameplayAbilitySystem
 
             ref var attributeGroup = ref GetAttributeCollection(ref attributeModifier);
 
-            switch (Attribute)
-            {
-                case EMyPlayerAttribute.Health:
-                    attributeGroup.Health += Value;
-                    break;
-                case EMyPlayerAttribute.MaxHealth:
-                    attributeGroup.MaxHealth += Value;
-                    break;
-                case EMyPlayerAttribute.Mana:
-                    attributeGroup.Mana += Value;
-                    break;
-                case EMyPlayerAttribute.MaxMana:
-                    attributeGroup.MaxMana += Value;
-                    break;
-                case EMyPlayerAttribute.Speed:
-                    attributeGroup.Speed += Value;
-                    break;
-                default:
-                    break;
-            }
-
+            attributeGroup[Attribute] += Value;
         }
     }
 }

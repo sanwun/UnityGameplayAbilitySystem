@@ -34,7 +34,7 @@ namespace MyGameplayAbilitySystem
             {
                 var defaultAttributes = new AttributeValues()
                 {
-                    BaseValue = new MyPlayerAttributes { Health = 100, Mana = 10, MaxHealth = 100, MaxMana = 10, Speed = 5 }
+                    BaseValue = MyPlayerAttributes.Create(Health: 100, Mana: 10, MaxHealth: 100, MaxMana: 10, Speed: 5)
                 };
 
                 var entity = CreatePlayerEntity(EntityManager, defaultAttributes);
@@ -69,11 +69,12 @@ namespace MyGameplayAbilitySystem
             {
                 var attributeValues = attributeValuesChunk[i];
                 var attributeModifierValues = attributeModifiersChunk[i];
-                attributeValues.CurrentValue.Health = ModifyValues(attributeValues.BaseValue.Health, attributeModifierValues.AddValue.Health, attributeModifierValues.MultiplyValue.Health, attributeModifierValues.DivideValue.Health);
-                attributeValues.CurrentValue.MaxHealth = ModifyValues(attributeValues.BaseValue.MaxHealth, attributeModifierValues.AddValue.MaxHealth, attributeModifierValues.MultiplyValue.MaxHealth, attributeModifierValues.DivideValue.MaxHealth);
-                attributeValues.CurrentValue.Mana = ModifyValues(attributeValues.BaseValue.Mana, attributeModifierValues.AddValue.Mana, attributeModifierValues.MultiplyValue.Mana, attributeModifierValues.DivideValue.Mana);
-                attributeValues.CurrentValue.MaxMana = ModifyValues(attributeValues.BaseValue.MaxMana, attributeModifierValues.AddValue.MaxMana, attributeModifierValues.MultiplyValue.MaxMana, attributeModifierValues.DivideValue.MaxMana);
-                attributeValues.CurrentValue.Speed = ModifyValues(attributeValues.BaseValue.Speed, attributeModifierValues.AddValue.Speed, attributeModifierValues.MultiplyValue.Speed, attributeModifierValues.DivideValue.Speed);
+                attributeValues.CurrentValue[EMyPlayerAttribute.Health] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Health], attributeModifierValues.AddValue[EMyPlayerAttribute.Health], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Health], attributeModifierValues.DivideValue[EMyPlayerAttribute.Health], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Health]);
+                attributeValues.CurrentValue[EMyPlayerAttribute.MaxHealth] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxHealth]);
+                attributeValues.CurrentValue[EMyPlayerAttribute.Mana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Mana], attributeModifierValues.AddValue[EMyPlayerAttribute.Mana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Mana], attributeModifierValues.DivideValue[EMyPlayerAttribute.Mana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Mana]);
+                attributeValues.CurrentValue[EMyPlayerAttribute.MaxMana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxMana]);
+                attributeValues.CurrentValue[EMyPlayerAttribute.Speed] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Speed], attributeModifierValues.AddValue[EMyPlayerAttribute.Speed], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Speed], attributeModifierValues.DivideValue[EMyPlayerAttribute.Speed], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Speed]);
+
                 ClampAttributes(ref attributeValues.CurrentValue);
                 attributeValuesChunk[i] = attributeValues;
             }
@@ -84,30 +85,30 @@ namespace MyGameplayAbilitySystem
             {
                 var attributeValues = attributeValuesChunk[i];
                 var attributeModifierValues = attributeModifiersChunk[i];
-                attributeValues.BaseValue.Health = ModifyValues(attributeValues.BaseValue.Health, attributeModifierValues.AddValue.Health, attributeModifierValues.MultiplyValue.Health, attributeModifierValues.DivideValue.Health);
-                attributeValues.BaseValue.MaxHealth = ModifyValues(attributeValues.BaseValue.MaxHealth, attributeModifierValues.AddValue.MaxHealth, attributeModifierValues.MultiplyValue.MaxHealth, attributeModifierValues.DivideValue.MaxHealth);
-                attributeValues.BaseValue.Mana = ModifyValues(attributeValues.BaseValue.Mana, attributeModifierValues.AddValue.Mana, attributeModifierValues.MultiplyValue.Mana, attributeModifierValues.DivideValue.Mana);
-                attributeValues.BaseValue.MaxMana = ModifyValues(attributeValues.BaseValue.MaxMana, attributeModifierValues.AddValue.MaxMana, attributeModifierValues.MultiplyValue.MaxMana, attributeModifierValues.DivideValue.MaxMana);
-                attributeValues.BaseValue.Speed = ModifyValues(attributeValues.BaseValue.Speed, attributeModifierValues.AddValue.Speed, attributeModifierValues.MultiplyValue.Speed, attributeModifierValues.DivideValue.Speed);
+                attributeValues.BaseValue[EMyPlayerAttribute.Health] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Health], attributeModifierValues.AddValue[EMyPlayerAttribute.Health], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Health], attributeModifierValues.DivideValue[EMyPlayerAttribute.Health], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Health]);
+                attributeValues.BaseValue[EMyPlayerAttribute.MaxHealth] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxHealth], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxHealth]);
+                attributeValues.BaseValue[EMyPlayerAttribute.Mana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Mana], attributeModifierValues.AddValue[EMyPlayerAttribute.Mana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Mana], attributeModifierValues.DivideValue[EMyPlayerAttribute.Mana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Mana]);
+                attributeValues.BaseValue[EMyPlayerAttribute.MaxMana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxMana]);
+                attributeValues.BaseValue[EMyPlayerAttribute.Speed] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Speed], attributeModifierValues.AddValue[EMyPlayerAttribute.Speed], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Speed], attributeModifierValues.DivideValue[EMyPlayerAttribute.Speed], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Speed]);
                 ClampAttributes(ref attributeValues.BaseValue);
                 attributeValuesChunk[i] = attributeValues;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static uint ModifyValues(float Base, float Add, float Multiply, float Divide)
+        static float ModifyValues(float Base, float Add, float Multiply, float Divide, float Override)
         {
-            return (uint)(((Base + Add) * (Multiply + 1)) / (Divide + 1));
+            return math.select(((Base + Add) * (Multiply + 1)) / (Divide + 1), Override, Override != 0);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void ClampAttributes(ref MyPlayerAttributes Attributes)
         {
-            Attributes.MaxHealth = math.max(0, Attributes.MaxHealth);
-            Attributes.MaxMana = math.max(0, Attributes.MaxMana);
-            Attributes.Speed = math.max(0, Attributes.Speed);
-            Attributes.Health = math.clamp(Attributes.Health, 0, Attributes.MaxHealth);
-            Attributes.Mana = math.clamp(Attributes.Mana, 0, Attributes.MaxMana);
+            Attributes[EMyPlayerAttribute.MaxHealth] = math.max(0, Attributes[EMyPlayerAttribute.MaxHealth]);
+            Attributes[EMyPlayerAttribute.MaxMana] = math.max(0, Attributes[EMyPlayerAttribute.MaxMana]);
+            Attributes[EMyPlayerAttribute.Speed] = math.max(0, Attributes[EMyPlayerAttribute.Speed]);
+            Attributes[EMyPlayerAttribute.Health] = math.clamp(Attributes[EMyPlayerAttribute.Health], 0, Attributes[EMyPlayerAttribute.MaxHealth]);
+            Attributes[EMyPlayerAttribute.Mana] = math.clamp(Attributes[EMyPlayerAttribute.Mana], 0, Attributes[EMyPlayerAttribute.MaxMana]);
         }
     }
 
