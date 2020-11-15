@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
 
@@ -12,4 +13,5 @@ namespace MyGameplayAbilitySystem
         public MyPlayerAttributes DivideValue;
         public MyPlayerAttributes OverrideValue;
     }
+
 }

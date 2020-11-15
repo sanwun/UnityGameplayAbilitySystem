@@ -1,40 +1,77 @@
 using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
 
 namespace MyGameplayAbilitySystem
 {
+
     [Serializable]
     public struct MyPlayerAttributes
     {
-        public float[] Attributes;
-        public const int ATTRIBUTE_SIZE = 9;
+        public float Health;
+        public float MaxHealth;
+        public float Mana;
+        public float MaxMana;
+        public float Speed;
+        public float PhysicalAttackDamage;
+        public float MagicAttackDamage;
+        public float PhysicalDefense;
+        public float MagicDefense;
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void GetAttribute(EMyPlayerAttribute attribute, ref float value)
+        {
+            switch (attribute)
+            {
+                case EMyPlayerAttribute.Health:
+                    value = Health;
+                    break;
+                case EMyPlayerAttribute.MaxHealth:
+                    value = MaxHealth;
+                    break;
+                case EMyPlayerAttribute.Mana:
+                    value = Mana;
+                    break;
+                case EMyPlayerAttribute.MaxMana:
+                    value = MaxMana;
+                    break;
+                case EMyPlayerAttribute.Speed:
+                    value = Speed;
+                    break;
+                case EMyPlayerAttribute.PhysicalAttackDamage:
+                    value = PhysicalAttackDamage;
+                    break;
+                case EMyPlayerAttribute.MagicAttackDamage:
+                    value = MagicAttackDamage;
+                    break;
+                case EMyPlayerAttribute.PhysicalDefense:
+                    value = PhysicalDefense;
+                    break;
+                case EMyPlayerAttribute.MagicDefense:
+                    value = MagicDefense;
+                    break;
+            }
+        }
         public float this[EMyPlayerAttribute attribute]
         {
-            get { return Attributes[(int)attribute]; }
-            set { Attributes[(int)attribute] = value; }
-        }
-
-        public static MyPlayerAttributes Create(float Health = 0,
-                                                float MaxHealth = 0,
-                                                float Mana = 0,
-                                                float MaxMana = 0,
-                                                float Speed = 0,
-                                                float PhysicalAttackDamage = 0,
-                                                float MagicAttackDamage = 0,
-                                                float PhysicalDefense = 0,
-                                                float MagicDefense = 0)
-        {
-            var newAttributes = new MyPlayerAttributes()
+            get
             {
-                Attributes = new float[ATTRIBUTE_SIZE] { Health, MaxHealth, Mana, MaxMana, Speed, PhysicalAttackDamage, MagicAttackDamage, PhysicalDefense, MagicDefense }
-            };
+                float value = 0;
+                GetAttribute(attribute, ref value);
+                return value;
+            }
+            set
+            {
+                float oldValue = 0;
+                GetAttribute(attribute, ref oldValue);
+                oldValue = value;
+            }
 
-            return newAttributes;
         }
     }
 
-
 }
+
+

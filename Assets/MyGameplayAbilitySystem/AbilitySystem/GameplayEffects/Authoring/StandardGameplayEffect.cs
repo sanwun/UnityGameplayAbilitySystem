@@ -13,7 +13,7 @@ using MyGameplayAbilitySystem;
 namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
 {
     [CreateAssetMenu(fileName = "GameplayEffect", menuName = "My Gameplay Ability System/Gameplay Effects/Standard")]
-    public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, MyPlayerAttributes, EMyAttributeModifierOperator>
+    public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, EMyPlayerAttribute, EMyAttributeModifierOperator>
     {
         public override Entity CreateEffectEntity(EntityManager dstManager, GameplayEffectSpec GameplayEffectSpec)
         {

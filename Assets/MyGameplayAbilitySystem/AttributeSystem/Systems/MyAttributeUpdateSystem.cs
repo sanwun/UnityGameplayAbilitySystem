@@ -34,7 +34,7 @@ namespace MyGameplayAbilitySystem
             {
                 var defaultAttributes = new AttributeValues()
                 {
-                    BaseValue = MyPlayerAttributes.Create(Health: 100, Mana: 10, MaxHealth: 100, MaxMana: 10, Speed: 5)
+                    BaseValue = new MyPlayerAttributes() { Health = 100, MaxHealth = 100, Mana = 10, MaxMana = 10, Speed = 5 }
                 };
 
                 var entity = CreatePlayerEntity(EntityManager, defaultAttributes);
@@ -74,7 +74,6 @@ namespace MyGameplayAbilitySystem
                 attributeValues.CurrentValue[EMyPlayerAttribute.Mana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Mana], attributeModifierValues.AddValue[EMyPlayerAttribute.Mana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Mana], attributeModifierValues.DivideValue[EMyPlayerAttribute.Mana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Mana]);
                 attributeValues.CurrentValue[EMyPlayerAttribute.MaxMana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxMana]);
                 attributeValues.CurrentValue[EMyPlayerAttribute.Speed] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Speed], attributeModifierValues.AddValue[EMyPlayerAttribute.Speed], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Speed], attributeModifierValues.DivideValue[EMyPlayerAttribute.Speed], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Speed]);
-
                 ClampAttributes(ref attributeValues.CurrentValue);
                 attributeValuesChunk[i] = attributeValues;
             }
@@ -91,6 +90,7 @@ namespace MyGameplayAbilitySystem
                 attributeValues.BaseValue[EMyPlayerAttribute.MaxMana] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.AddValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.DivideValue[EMyPlayerAttribute.MaxMana], attributeModifierValues.OverrideValue[EMyPlayerAttribute.MaxMana]);
                 attributeValues.BaseValue[EMyPlayerAttribute.Speed] = ModifyValues(attributeValues.BaseValue[EMyPlayerAttribute.Speed], attributeModifierValues.AddValue[EMyPlayerAttribute.Speed], attributeModifierValues.MultiplyValue[EMyPlayerAttribute.Speed], attributeModifierValues.DivideValue[EMyPlayerAttribute.Speed], attributeModifierValues.OverrideValue[EMyPlayerAttribute.Speed]);
                 ClampAttributes(ref attributeValues.BaseValue);
+                attributeValues.CurrentValue = attributeValues.BaseValue;
                 attributeValuesChunk[i] = attributeValues;
             }
         }

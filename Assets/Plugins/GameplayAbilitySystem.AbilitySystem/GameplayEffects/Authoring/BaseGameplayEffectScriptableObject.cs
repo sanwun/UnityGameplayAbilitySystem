@@ -10,10 +10,10 @@ using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
 {
-    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifier, TAttributeModifierOperators> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
+    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
     where TGameplayEffectSpec : IGameplayEffectSpec
-    where TAttributeModifier : struct
-    where TAttributeModifierOperators : System.Enum
+    where TAttributeModifierEnum : System.Enum
+    where TAttributeModifierOperatorEnum : System.Enum
     {
         [Header("Effect Unique ID")]
         [Tooltip("Unique ID for this Effect")]
@@ -36,8 +36,9 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         [Serializable]
         public struct Modifiers
         {
-            public TAttributeModifierOperators Modifier;
-            public TAttributeModifier Attributes;
+            public TAttributeModifierOperatorEnum Modifier;
+            public TAttributeModifierEnum Attribute;
+            public float ModificationValue;
             public GameplayTagScriptableObject[] SourceRequiredTags;
             public GameplayTagScriptableObject[] SourceBlockedTags;
             public GameplayTagScriptableObject[] TargetRequiredTags;
