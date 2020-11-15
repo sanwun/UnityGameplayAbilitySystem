@@ -13,7 +13,7 @@ using MyGameplayAbilitySystem;
 namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
 {
     [CreateAssetMenu(fileName = "GameplayEffect", menuName = "My Gameplay Ability System/Gameplay Effects/Standard")]
-    public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues>
+    public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, MyPlayerAttributes>
     {
         public override Entity CreateEffectEntity(EntityManager dstManager, GameplayEffectSpec GameplayEffectSpec)
         {
@@ -21,7 +21,7 @@ namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
             var dotEntity = dstManager.CreateEntity(typeof(DotGameplayEffect), typeof(DurationStateComponent), typeof(TimeDurationComponent), typeof(GameplayEffectContextComponent));
             dstManager.SetComponentData(dotEntity, new DotGameplayEffect()
             {
-                DamagePerTick = GameplayEffectSpec.Damage
+                DamagePerTick = GameplayEffectSpec.EffectMagnitude
             });
 
             dstManager.SetComponentData(dotEntity, new GameplayEffectContextComponent()

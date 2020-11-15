@@ -10,19 +10,17 @@ using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
 {
-    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TInstantAttributesModifier, TDurationalAttributesModifier> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
+    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifier> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
     where TGameplayEffectSpec : IGameplayEffectSpec
-    where TInstantAttributesModifier : IAttributeModifier
-    where TDurationalAttributesModifier : IAttributeModifier
+    where TAttributeModifier : struct
     {
         [Header("Effect Unique ID")]
         [Tooltip("Unique ID for this Effect")]
         public uint EffectId;
 
-
         [Header("Effect Specification")]
         public DurationPolicy Duration;
-        public List<Modifiers> AttributeModifiers;
+        public Modifiers[] AttributeModifiers;
         public PeriodPolicy Period;
 
         [Header("Effect Tags")]
@@ -37,8 +35,7 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         [Serializable]
         public struct Modifiers
         {
-            public TInstantAttributesModifier InstantAttributes;
-            public TDurationalAttributesModifier DurationalAttributes;
+            public TAttributeModifier InstantAttributes;
             public GameplayTagScriptableObject[] SourceRequiredTags;
             public GameplayTagScriptableObject[] SourceBlockedTags;
             public GameplayTagScriptableObject[] TargetRequiredTags;
@@ -58,12 +55,20 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
             public EDurationPolicy DurationType;
             public float Duration;
         }
+        public enum EDurationPolicy
+        {
+            Instant, Duration, Infinite
+        }
+
     }
-
-
-    public enum EDurationPolicy
+    public abstract class ModifierExecutionCalculation<TGameplayEffectSpec, TInstantAttributesModifier, TDurationalAttributesModifier> : ScriptableObject
+    where TGameplayEffectSpec : IGameplayEffectSpec
+    where TInstantAttributesModifier : IAttributeModifier
+    where TDurationalAttributesModifier : IAttributeModifier
     {
-        Instant, Duration, Infinite
+        public abstract void Modify(ref TInstantAttributesModifier InstantAttributeModifier, ref TDurationalAttributesModifier DurationalAttributeModifier, TGameplayEffectSpec GameplayEffectSpec);
     }
+
+
 
 }

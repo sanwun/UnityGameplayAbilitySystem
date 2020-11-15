@@ -1,15 +1,20 @@
 using System;
+using System.ComponentModel;
+using GameplayAbilitySystem.AttributeSystem.Components;
+using Unity.Entities;
 
 namespace MyGameplayAbilitySystem
 {
     [Serializable]
-    public struct MyPlayerAttributes<T>
-    where T : struct
+    public struct MyPlayerAttributes
     {
-        public T Health;
-        public T MaxHealth;
-        public T Mana;
-        public T MaxMana;
-        public T Speed;
+        public float Health;
+        public float MaxHealth;
+        public float Mana;
+        public float MaxMana;
+        public float Speed;
+        public float BaseAttackDamage;
+        public float MagicAttackDamage;
+        public float Defense;
     }
 }

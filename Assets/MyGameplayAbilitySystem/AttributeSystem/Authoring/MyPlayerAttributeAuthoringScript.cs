@@ -17,7 +17,7 @@ public class MyPlayerAttributeAuthoringScript : MonoBehaviour, IConvertGameObjec
     public Entity InitialiseAttributeEntity(EntityManager dstManager)
     {
         var damagable = GetComponent<Damageable>();
-        var defaultAttributes = new MyPlayerAttributes<float>() { Health = (float)damagable.maxHitPoints, MaxHealth = (float)damagable.maxHitPoints };
+        var defaultAttributes = new MyPlayerAttributes() { Health = (float)damagable.maxHitPoints, MaxHealth = (float)damagable.maxHitPoints };
         attributeEntity = MyAttributeUpdateSystem.CreatePlayerEntity(dstManager, new AttributeValues() { BaseValue = defaultAttributes });
         dstManager.SetName(attributeEntity, $"{this.gameObject.name} - Attributes");
         return attributeEntity;

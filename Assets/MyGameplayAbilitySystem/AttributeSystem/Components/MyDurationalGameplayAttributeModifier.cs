@@ -9,7 +9,7 @@ namespace MyGameplayAbilitySystem
         public half Value;
         public EMyPlayerAttribute Attribute;
         public EMyAttributeModifierOperator Operator;
-        ref MyPlayerAttributes<float> GetAttributeCollection(ref MyDurationalAttributeModifierValues attributeModifier)
+        ref MyPlayerAttributes GetAttributeCollection(ref MyDurationalAttributeModifierValues attributeModifier)
         {
             switch (Operator)
             {

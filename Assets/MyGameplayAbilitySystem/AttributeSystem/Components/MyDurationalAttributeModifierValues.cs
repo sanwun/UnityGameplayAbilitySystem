@@ -7,8 +7,9 @@ namespace MyGameplayAbilitySystem
     [Serializable]
     public struct MyDurationalAttributeModifierValues : IAttributeModifier, IComponentData
     {
-        public MyPlayerAttributes<float> AddValue;
-        public MyPlayerAttributes<float> MultiplyValue;
-        public MyPlayerAttributes<float> DivideValue;
+        public MyPlayerAttributes AddValue;
+        public MyPlayerAttributes MultiplyValue;
+        public MyPlayerAttributes DivideValue;
+        public MyPlayerAttributes OverrideValue;
     }
 }

@@ -7,7 +7,7 @@ namespace MyGameplayAbilitySystem
     [Serializable]
     public struct AttributeValues : IAttributeData, IComponentData
     {
-        public MyPlayerAttributes<float> BaseValue;
-        public MyPlayerAttributes<float> CurrentValue;
+        public MyPlayerAttributes BaseValue;
+        public MyPlayerAttributes CurrentValue;
     }
 }
