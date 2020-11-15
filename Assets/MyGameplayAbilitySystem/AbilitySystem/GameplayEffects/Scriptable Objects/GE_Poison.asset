@@ -17,44 +17,9 @@ MonoBehaviour:
     DurationType: 1
     Duration: 10
   AttributeModifiers:
-  - InstantAttributes:
-      AddValue:
-        Health: -1
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      MultiplyValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      DivideValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-    DurationalAttributes:
-      AddValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      MultiplyValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      DivideValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
+  - Modifier: 1
+    Attribute: 0
+    ModificationValue: 0
     SourceRequiredTags: []
     SourceBlockedTags: []
     TargetRequiredTags: []
