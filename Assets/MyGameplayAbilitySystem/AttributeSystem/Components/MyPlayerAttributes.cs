@@ -54,6 +54,42 @@ namespace MyGameplayAbilitySystem
                     break;
             }
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private void SetAttribute(EMyPlayerAttribute attribute, float value)
+        {
+            switch (attribute)
+            {
+                case EMyPlayerAttribute.Health:
+                    Health = value;
+                    break;
+                case EMyPlayerAttribute.MaxHealth:
+                    MaxHealth = value;
+                    break;
+                case EMyPlayerAttribute.Mana:
+                    Mana = value;
+                    break;
+                case EMyPlayerAttribute.MaxMana:
+                    MaxMana = value;
+                    break;
+                case EMyPlayerAttribute.Speed:
+                    Speed = value;
+                    break;
+                case EMyPlayerAttribute.PhysicalAttackDamage:
+                    PhysicalAttackDamage = value;
+                    break;
+                case EMyPlayerAttribute.MagicAttackDamage:
+                    MagicAttackDamage = value;
+                    break;
+                case EMyPlayerAttribute.PhysicalDefense:
+                    PhysicalDefense = value;
+                    break;
+                case EMyPlayerAttribute.MagicDefense:
+                    MagicDefense = value;
+                    break;
+            }
+        }
+
         public float this[EMyPlayerAttribute attribute]
         {
             get
@@ -64,9 +100,7 @@ namespace MyGameplayAbilitySystem
             }
             set
             {
-                float oldValue = 0;
-                GetAttribute(attribute, ref oldValue);
-                oldValue = value;
+                SetAttribute(attribute, value);
             }
 
         }

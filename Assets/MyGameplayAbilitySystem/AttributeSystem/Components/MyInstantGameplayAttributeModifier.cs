@@ -6,7 +6,7 @@ namespace MyGameplayAbilitySystem
 {
     public struct MyInstantGameplayAttributeModifier : IComponentData, IGameplayAttributeModifier<MyInstantAttributeModifierValues>
     {
-        public half Value;
+        public float Value;
         public EMyPlayerAttribute Attribute;
         public EMyAttributeModifierOperator Operator;
         ref MyPlayerAttributes GetAttributeCollection(ref MyInstantAttributeModifierValues attributeModifier)

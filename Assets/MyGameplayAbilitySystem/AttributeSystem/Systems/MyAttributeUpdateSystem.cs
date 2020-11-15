@@ -8,6 +8,7 @@ using Unity.Mathematics;
 
 namespace MyGameplayAbilitySystem
 {
+    [UpdateInGroup(typeof(AttributeUpdateSystemGroup))]
     public class MyAttributeUpdateSystem : AttributeUpdateSystem<AttributeValues, MyInstantAttributeModifierValues, MyDurationalAttributeModifierValues, MyPlayerAttributesJob>
     {
         public static Entity CreateGameplayEffect(EntityManager dstManager, GameplayEffectContextComponent context, MyDurationalGameplayAttributeModifier modifier)

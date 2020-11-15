@@ -1,12 +1,13 @@
 ﻿using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace MyGameplayAbilitySystem
 {
     public struct MyDurationalGameplayAttributeModifier : IComponentData, IGameplayAttributeModifier<MyDurationalAttributeModifierValues>
     {
-        public half Value;
+        public float Value;
         public EMyPlayerAttribute Attribute;
         public EMyAttributeModifierOperator Operator;
         ref MyPlayerAttributes GetAttributeCollection(ref MyDurationalAttributeModifierValues attributeModifier)

@@ -36,11 +36,11 @@ public class PaletteWizard : ScriptableWizard
             for (var i = 0; i < pixels.Length; i++)
                 pixels[i] = c;
             tex.SetPixels(pixels);
-            var name = "Assets/"+((int)(c.r * 255)).ToString("X2")+((int)(c.g * 255)).ToString("X2")+((int)(c.b * 255)).ToString("X2")+".png";
+            var name = "Assets/" + ((int)(c.r * 255)).ToString("X2") + ((int)(c.g * 255)).ToString("X2") + ((int)(c.b * 255)).ToString("X2") + ".png";
             var filename = AssetDatabase.GenerateUniqueAssetPath(name);
             System.IO.File.WriteAllBytes(filename, tex.EncodeToPNG());
         }
-        AssetDatabase.Refresh();
+        //  AssetDatabase.Refresh();
     }
 
     void OnWizardOtherButton()

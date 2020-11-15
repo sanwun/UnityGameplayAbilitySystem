@@ -6,8 +6,6 @@ using UnityEngine;
 
 namespace GameplayAbilitySystem.AttributeSystem.Systems
 {
-    [UpdateInGroup(typeof(AttributeUpdateSystemGroup))]
-    [UpdateBefore(typeof(AttributeUpdateSystem<,,,>))]
     public class AttributeModifierCollectionSystem<TAttributeModifier, TGameplayAttributesModifier, TComponentTag> : SystemBase
     where TAttributeModifier : struct, IComponentData, IAttributeModifier
     where TGameplayAttributesModifier : struct, IComponentData, IGameplayAttributeModifier<TAttributeModifier>
@@ -53,6 +51,7 @@ namespace GameplayAbilitySystem.AttributeSystem.Systems
                 GameplayAttributeModifierHandle = GetComponentTypeHandle<TGameplayAttributesModifier>(true),
                 GameplayEffectContextHandle = GetComponentTypeHandle<GameplayEffectContextComponent>(true)
             }.ScheduleParallel(m_AttributeModifiers, Dependency);
+
             Dependency = new MapAttributeModificationsToPlayer()
             {
                 AttributeModifierValuesHandle = GetComponentTypeHandle<TAttributeModifier>(false),
@@ -63,7 +62,8 @@ namespace GameplayAbilitySystem.AttributeSystem.Systems
             AttributeModifiersNMHM.Dispose(Dependency);
         }
 
-        [BurstCompile]
+        [BurstCompile(Debug = true)]
+
         struct CollectAllAttributeModifiers : IJobChunk
         {
             public NativeMultiHashMap<Entity, TGameplayAttributesModifier>.ParallelWriter AttributeModifiersNMHMWriter;
@@ -83,7 +83,8 @@ namespace GameplayAbilitySystem.AttributeSystem.Systems
             }
         }
 
-        [BurstCompile]
+        [BurstCompile(Debug = true)]
+
         struct MapAttributeModificationsToPlayer : IJobChunk
         {
             public ComponentTypeHandle<TAttributeModifier> AttributeModifierValuesHandle;
@@ -112,7 +113,7 @@ namespace GameplayAbilitySystem.AttributeSystem.Systems
             }
         }
 
-        [BurstCompile]
+        [BurstCompile(Debug = true)]
         struct ResetAttributeModificationsForPlayer : IJobChunk
         {
             public ComponentTypeHandle<TAttributeModifier> AttributeModifierValuesHandle;

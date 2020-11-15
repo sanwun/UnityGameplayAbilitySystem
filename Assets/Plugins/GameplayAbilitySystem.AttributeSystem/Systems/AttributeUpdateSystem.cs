@@ -8,7 +8,6 @@ using UnityEngine;
 namespace GameplayAbilitySystem.AttributeSystem.Systems
 {
     [UpdateInGroup(typeof(AttributeUpdateSystemGroup))]
-    [UpdateBefore(typeof(AttributeModifierCollectionSystem<,,>))]
     public class AttributeUpdateSystem<TAttributeValues, TInstantAttributeModifier, TDurationalAttributeModifier, TJobExecutable> : SystemBase
     where TAttributeValues : struct, IComponentData, IAttributeData
     where TDurationalAttributeModifier : struct, IComponentData, IAttributeModifier

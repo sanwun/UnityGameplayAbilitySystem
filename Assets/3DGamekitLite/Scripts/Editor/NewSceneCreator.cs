@@ -67,7 +67,7 @@ namespace Gamekit3D
             {
                 string newScenePath = "Assets/" + m_NewSceneName + ".unity";
                 AssetDatabase.CopyAsset(AssetDatabase.GUIDToAssetPath(result[0]), newScenePath);
-                AssetDatabase.Refresh();
+                // AssetDatabase.Refresh();
                 Scene newScene = EditorSceneManager.OpenScene(newScenePath, OpenSceneMode.Single);
                 AddSceneToBuildSettings(newScene);
                 Close();
