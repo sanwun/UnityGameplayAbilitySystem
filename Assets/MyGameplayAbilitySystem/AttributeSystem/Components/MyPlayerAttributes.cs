@@ -21,42 +21,35 @@ namespace MyGameplayAbilitySystem
         public float MagicDefense;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void GetAttribute(EMyPlayerAttribute attribute, ref float value)
+        private float GetPlayerAttribute(EMyPlayerAttribute attribute)
         {
             switch (attribute)
             {
                 case EMyPlayerAttribute.Health:
-                    value = Health;
-                    break;
+                    return Health;
                 case EMyPlayerAttribute.MaxHealth:
-                    value = MaxHealth;
-                    break;
+                    return MaxHealth;
                 case EMyPlayerAttribute.Mana:
-                    value = Mana;
-                    break;
+                    return Mana;
                 case EMyPlayerAttribute.MaxMana:
-                    value = MaxMana;
-                    break;
+                    return MaxMana;
                 case EMyPlayerAttribute.Speed:
-                    value = Speed;
-                    break;
+                    return Speed;
                 case EMyPlayerAttribute.PhysicalAttackDamage:
-                    value = PhysicalAttackDamage;
-                    break;
+                    return PhysicalAttackDamage;
                 case EMyPlayerAttribute.MagicAttackDamage:
-                    value = MagicAttackDamage;
-                    break;
+                    return MagicAttackDamage;
                 case EMyPlayerAttribute.PhysicalDefense:
-                    value = PhysicalDefense;
-                    break;
+                    return PhysicalDefense;
                 case EMyPlayerAttribute.MagicDefense:
-                    value = MagicDefense;
-                    break;
+                    return MagicDefense;
+                default:
+                    return 0;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void SetAttribute(EMyPlayerAttribute attribute, float value)
+        private void SetPlayerAttribute(EMyPlayerAttribute attribute, float value)
         {
             switch (attribute)
             {
@@ -94,13 +87,11 @@ namespace MyGameplayAbilitySystem
         {
             get
             {
-                float value = 0;
-                GetAttribute(attribute, ref value);
-                return value;
+                return GetPlayerAttribute(attribute);
             }
             set
             {
-                SetAttribute(attribute, value);
+                SetPlayerAttribute(attribute, value);
             }
 
         }
