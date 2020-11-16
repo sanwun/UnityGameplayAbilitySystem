@@ -7,19 +7,10 @@ using System.ComponentModel;
 
 public struct GameplayEffectSpec : IGameplayEffectSpec, IComponentData
 {
-    public uint EffectId;
+    public GameplayEffectIdentifierComponent EffectId;
     public GameplayEffectContextComponent Context;
-    public PlayerAttributeCollection Attributes;
+    public PlayerAttributeCollectionComponent Attributes;
     public float EffectMagnitude;
     public float Duration;
     public float TickPeriod;
-}
-
-public struct PlayerAttributeCollection
-{
-    public MyPlayerAttributes SourceBaseAttributes;
-    public MyPlayerAttributes SourceCurrentAttributes;
-    public MyPlayerAttributes TargetBaseAttributes;
-    public MyPlayerAttributes TargetCurrentAttributes;
-
 }

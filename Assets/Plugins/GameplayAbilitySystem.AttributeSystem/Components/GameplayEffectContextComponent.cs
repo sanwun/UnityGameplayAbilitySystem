@@ -7,4 +7,9 @@ namespace GameplayAbilitySystem.AttributeSystem.Components
         public Entity Target;
         public Entity Source;
     }
+
+    public struct GameplayEffectIdentifierComponent : ISharedComponentData
+    {
+        public uint Id;
+    }
 }

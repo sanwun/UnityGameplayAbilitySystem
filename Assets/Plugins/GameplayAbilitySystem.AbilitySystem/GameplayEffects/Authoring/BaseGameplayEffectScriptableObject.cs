@@ -33,7 +33,7 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         public GameplayTagScriptableObject[] GrantedApplicationImmunityTags;
 
         public abstract TGameplayEffectSpec CreateGameplayEffect(TGameplayEffectSpec Spec);
-        public abstract Entity CreateEffectEntity(EntityManager dstManager, TGameplayEffectSpec GameplayEffectSpec);
+        public abstract Entity ApplyGameplayEffect(EntityManager dstManager, TGameplayEffectSpec GameplayEffectSpec);
 
         [Serializable]
         public struct Modifiers

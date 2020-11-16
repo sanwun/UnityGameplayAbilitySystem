@@ -16,19 +16,15 @@ namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
     public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, EMyPlayerAttribute, EMyAttributeModifierOperator>
     {
 
-        public override Entity CreateEffectEntity(EntityManager dstManager, GameplayEffectSpec GameplayEffectSpec)
+        public override Entity ApplyGameplayEffect(EntityManager dstManager, GameplayEffectSpec GameplayEffectSpec)
         {
             // Create a poison effect, that does 1 damage every 1s tick
-            var dotEntity = dstManager.CreateEntity(typeof(DotGameplayEffect), typeof(DurationStateComponent), typeof(TimeDurationComponent), typeof(GameplayEffectContextComponent));
-            dstManager.SetComponentData(dotEntity, new DotGameplayEffect()
-            {
-                DamagePerTick = GameplayEffectSpec.EffectMagnitude
-            });
+            var dotEntity = dstManager.CreateEntity(typeof(DurationStateComponent), typeof(TimeDurationComponent), typeof(GameplayEffectContextComponent));
 
             dstManager.SetComponentData(dotEntity, new GameplayEffectContextComponent()
             {
-                Target = GameplayEffectSpec.GameplayEffectContextComponent.Target,
-                Source = GameplayEffectSpec.GameplayEffectContextComponent.Source
+                Target = GameplayEffectSpec.Context.Target,
+                Source = GameplayEffectSpec.Context.Source
             });
 
             dstManager.SetComponentData(dotEntity, TimeDurationComponent.New(GameplayEffectSpec.TickPeriod, GameplayEffectSpec.Duration));
