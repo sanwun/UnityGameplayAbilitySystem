@@ -1,18 +1,25 @@
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
+using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
 
-public class GameplayEffectApplicationSystem : SystemBase
+public abstract class GameplayEffectApplicationSystem : SystemBase
 {
     EndSimulationEntityCommandBufferSystem m_EndSimulationEcbSystem;
-
+    public abstract uint EffectId { get; }
     protected override void OnUpdate()
     {
         Entities
-            .ForEach((int entityInQueryIndex, Entity entity, ref TimeDurationComponent durationComponent, ref DurationStateComponent state) =>
+            // WE NEED TO BE ABLE TO CODEGEN THIS, GIVEN THE INPUT EFFECT ID VARIABLE
+            .WithSharedComponentFilter<GameplayEffectGroupSharedComponent>(new GameplayEffectGroupSharedComponent()
             {
-
+                SharedGroupId = EffectId
             })
-            .WithBurst()
-            .ScheduleParallel();
+
+            // THIS LAMBDA SHOULD BE THE ONLY THING THAT NEEDS TO BE DEFINED IN CONCRETE CLASSES
+            .ForEach((Entity entity) =>
+            {
+            }).ScheduleParallel();
+
+
     }
 }

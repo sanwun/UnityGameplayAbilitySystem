@@ -7,7 +7,8 @@ using System.ComponentModel;
 
 public struct GameplayEffectSpec : IGameplayEffectSpec, IComponentData
 {
-    public GameplayEffectIdentifierComponent EffectId;
+    public GmaeplayEffectIdentifierComponent EffectId;
+    public GameplayEffectGroupSharedComponent EffectGroupId;
     public GameplayEffectContextComponent Context;
     public PlayerAttributeCollectionComponent Attributes;
     public float EffectMagnitude;
