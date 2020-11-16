@@ -31,6 +31,8 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         public GameplayTagScriptableObject[] ApplicationTagRequirements;
         public GameplayTagScriptableObject[] RemoveGameplayEffectsWithTags;
         public GameplayTagScriptableObject[] GrantedApplicationImmunityTags;
+
+        public abstract TGameplayEffectSpec CreateGameplayEffect(TGameplayEffectSpec Spec);
         public abstract Entity CreateEffectEntity(EntityManager dstManager, TGameplayEffectSpec GameplayEffectSpec);
 
         [Serializable]

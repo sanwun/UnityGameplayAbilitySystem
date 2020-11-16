@@ -15,6 +15,7 @@ namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
     [CreateAssetMenu(fileName = "GameplayEffect", menuName = "My Gameplay Ability System/Gameplay Effects/Standard")]
     public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<GameplayEffectSpec, EMyPlayerAttribute, EMyAttributeModifierOperator>
     {
+
         public override Entity CreateEffectEntity(EntityManager dstManager, GameplayEffectSpec GameplayEffectSpec)
         {
             // Create a poison effect, that does 1 damage every 1s tick
@@ -32,6 +33,12 @@ namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
 
             dstManager.SetComponentData(dotEntity, TimeDurationComponent.New(GameplayEffectSpec.TickPeriod, GameplayEffectSpec.Duration));
             return dotEntity;
+        }
+
+        public override GameplayEffectSpec CreateGameplayEffect(GameplayEffectSpec Spec)
+        {
+
+            throw new System.NotImplementedException();
         }
     }
 }
