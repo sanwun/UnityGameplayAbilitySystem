@@ -19,8 +19,6 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Systems
         {
             m_EndSimulationEcbSystem = World.GetOrCreateSystem<EndSimulationEntityCommandBufferSystem>();
             ScheduledTicks = new NativeQueue<Entity>(Allocator.Persistent);
-            var entity = World.DefaultGameObjectInjectionWorld.EntityManager.CreateEntity(typeof(TimeDurationComponent));
-            SetComponent(entity, TimeDurationComponent.New(1f, 20f));
         }
         protected override void OnUpdate()
         {

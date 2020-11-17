@@ -9,7 +9,7 @@ namespace Gamekit3D
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(Animator))]
-    public class PlayerController : MonoBehaviour, IMessageReceiver, IConvertGameObjectToEntity
+    public class PlayerController : MonoBehaviour, IMessageReceiver
     {
         protected static PlayerController s_Instance;
         public static PlayerController instance { get { return s_Instance; } }
@@ -18,8 +18,6 @@ namespace Gamekit3D
         public Cinemachine.CinemachineVirtualCamera gameCamera;
 
         public bool respawning { get { return m_Respawning; } }
-
-        public Entity Entity { get { return m_Entity; } }
 
 
         public bool isAiming { get { return m_IsAiming; } }
@@ -714,9 +712,5 @@ namespace Gamekit3D
             m_Damageable.isInvulnerable = true;
         }
 
-        public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
-        {
-            this.m_Entity = entity;
-        }
     }
 }

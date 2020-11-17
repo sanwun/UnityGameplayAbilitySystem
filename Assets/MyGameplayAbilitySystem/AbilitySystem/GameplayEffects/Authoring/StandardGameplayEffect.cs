@@ -27,7 +27,7 @@ namespace Assets.MyGameplayAbilitySystem.AbilitySystem.GameplayEffects
                 Source = GameplayEffectSpec.Context.Source
             });
 
-            dstManager.SetComponentData(dotEntity, TimeDurationComponent.New(GameplayEffectSpec.TickPeriod, GameplayEffectSpec.Duration));
+            dstManager.SetComponentData(dotEntity, TimeDurationComponent.New(GameplayEffectSpec.TickPeriod.Value, GameplayEffectSpec.Duration.Value));
             return dotEntity;
         }
 

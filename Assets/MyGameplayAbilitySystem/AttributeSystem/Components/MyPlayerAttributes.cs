@@ -8,7 +8,7 @@ namespace MyGameplayAbilitySystem
 {
 
     [Serializable]
-    public struct MyPlayerAttributes
+    public struct MyPlayerAttributes : IComponentData
     {
         public float Health;
         public float MaxHealth;
