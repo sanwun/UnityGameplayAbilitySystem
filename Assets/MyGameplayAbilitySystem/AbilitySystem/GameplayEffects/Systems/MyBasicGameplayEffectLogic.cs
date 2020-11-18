@@ -1,34 +1,43 @@
+using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
+using GameplayAbilitySystem.AttributeSystem.Components;
 using MyGameplayAbilitySystem;
 using Unity.Collections;
 using Unity.Entities;
 
-public class MyBasicGameplayEffectLogic : GameplayEffectApplicationSystem<MyBasicGameplayEffectLogic.MyBasicGameplayEffectJob>
+public class MyBasicGameplayEffectLogic : GameplayEffectApplicationSystem<MySimpleGameplayEffectSpec, MyBasicGameplayEffectLogic.MyBasicGameplayEffectJob>
 {
     public override uint EffectGroupId => 1;
 
     protected override MyBasicGameplayEffectJob EffectJob()
     {
-        return new MyBasicGameplayEffectJob();
-    }
-
-    protected override EntityQueryDesc EffectQuery()
-    {
-        return new EntityQueryDesc()
+        return new MyBasicGameplayEffectJob()
         {
-            All = new ComponentType[] { typeof(AttributeValues) }
+            GameplayEffectIdentifierComponentType = GetComponentTypeHandle<GameplayEffectIdentifierComponent>(true),
+            GameplayEffectContextComponentType = GetComponentTypeHandle<GameplayEffectContextComponent>(true),
+            PlayerAttributeCollectionComponentType = GetComponentTypeHandle<PlayerAttributeCollectionComponent>(true),
+            GameplayEffectSpecMagnitudeType = GetComponentTypeHandle<GameplayEffectSpecMagnitude>(true),
+            TimeDurationComponentType = GetComponentTypeHandle<TimeDurationComponent>(true),
         };
     }
 
     public struct MyBasicGameplayEffectJob : IJobChunk
     {
-        [ReadOnly] public ComponentTypeHandle<GameplayEffectSpec> GameplayEffectSpecType;
+        [ReadOnly] public ComponentTypeHandle<GameplayEffectIdentifierComponent> GameplayEffectIdentifierComponentType;
+        [ReadOnly] public ComponentTypeHandle<GameplayEffectContextComponent> GameplayEffectContextComponentType;
+        [ReadOnly] public ComponentTypeHandle<PlayerAttributeCollectionComponent> PlayerAttributeCollectionComponentType;
+        [ReadOnly] public ComponentTypeHandle<GameplayEffectSpecMagnitude> GameplayEffectSpecMagnitudeType;
+        [ReadOnly] public ComponentTypeHandle<TimeDurationComponent> TimeDurationComponentType;
         public void Execute(ArchetypeChunk chunk, int chunkIndex, int firstEntityIndex)
         {
-            var chunkSpecs = chunk.GetNativeArray(GameplayEffectSpecType);
+            var chunkGameplayEffectId = chunk.GetNativeArray(GameplayEffectIdentifierComponentType);
+            var chunkGameplayEffectContext = chunk.GetNativeArray(GameplayEffectContextComponentType);
+            var chunkPlayerAttributeCollection = chunk.GetNativeArray(PlayerAttributeCollectionComponentType);
+            var chunkGameplayEffectSpecMagnitude = chunk.GetNativeArray(GameplayEffectSpecMagnitudeType);
+            var chunkTimeDuration = chunk.GetNativeArray(TimeDurationComponentType);
 
-            for (var i = 0; i < chunkSpecs.Length; i++)
+            for (var i = 0; i < chunkGameplayEffectId.Length; i++)
             {
-                var geSpec = chunkSpecs[i];
+
                 // var damage = geSpec.Attributes.
             }
         }

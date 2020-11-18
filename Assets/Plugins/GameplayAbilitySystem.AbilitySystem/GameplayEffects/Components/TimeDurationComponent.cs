@@ -22,16 +22,20 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Tick(float deltaTime)
         {
-            ElapsedPeriod += deltaTime;
             ElapsedDuration += deltaTime;
-            if (ElapsedPeriod >= Period)
+            if (Period > 0)
             {
-                // Decrement the period to reset it. 
-                // Keep the time offset, so we can compensate for
-                // time drifts
-                ElapsedPeriod -= Period;
-                TimesTicked++;
-                return true;
+                ElapsedPeriod += deltaTime;
+
+                if (ElapsedPeriod >= Period)
+                {
+                    // Decrement the period to reset it. 
+                    // Keep the time offset, so we can compensate for
+                    // time drifts
+                    ElapsedPeriod -= Period;
+                    TimesTicked++;
+                    return true;
+                }
             }
             return false;
         }

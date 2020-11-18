@@ -1,10 +1,10 @@
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
-using System.Collections.Generic;
-using System.Linq;
+using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 
-public abstract class GameplayEffectApplicationSystem<TJob> : SystemBase
+public abstract class GameplayEffectApplicationSystem<TGameplayEffectSpec, TJob> : SystemBase
+where TGameplayEffectSpec : struct, IGameplayEffectSpec
 where TJob : struct, IJobChunk
 {
     EndSimulationEntityCommandBufferSystem m_EndSimulationEcbSystem;
@@ -18,12 +18,9 @@ where TJob : struct, IJobChunk
 
     protected sealed override void OnCreate()
     {
-        var entityQueryDesc = EffectQuery();
-        entityQueryDesc.All = entityQueryDesc.All.Append(typeof(GameplayEffectGroupSharedComponent)).ToArray();
-        m_query = GetEntityQuery(entityQueryDesc);
+        m_query = GetEntityQuery(new TGameplayEffectSpec().GetComponents());
         m_query.SetSharedComponentFilter(new GameplayEffectGroupSharedComponent() { SharedGroupId = EffectGroupId });
     }
-    protected abstract EntityQueryDesc EffectQuery();
     protected abstract TJob EffectJob();
     protected sealed override void OnUpdate()
     {

@@ -19,6 +19,10 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         [Tooltip("Unique ID for this Effect")]
         public uint EffectId;
 
+        [Header("Grouping ID")]
+        [Tooltip("Group ID for this Effect.  Used for controlling the effect logic.")]
+        public uint GroupEffectId;
+
         [Header("Effect Specification")]
         public DurationPolicy Duration;
         public Modifiers[] AttributeModifiers;

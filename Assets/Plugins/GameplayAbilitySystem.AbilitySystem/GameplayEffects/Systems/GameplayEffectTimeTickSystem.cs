@@ -49,6 +49,8 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Systems
                 })
                 .WithBurst()
                 .ScheduleParallel();
+
+            m_EndSimulationEcbSystem.AddJobHandleForProducer(this.Dependency);
         }
     }
 }
