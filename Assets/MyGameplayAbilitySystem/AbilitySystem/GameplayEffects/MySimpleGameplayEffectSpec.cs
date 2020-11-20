@@ -14,6 +14,7 @@ public struct MySimpleGameplayEffectSpec : IGameplayEffectSpec
     public GameplayEffectSpecMagnitude EffectMagnitude;
     public TimeDurationComponent Time;
     public DurationStateComponent Duration;
+    public BlobAssetReference<StandardGameplayEffectBlob> GameplayEffectBlobAssetRef;
     public ComponentType[] GetComponents()
     {
         return new[]
@@ -24,7 +25,8 @@ public struct MySimpleGameplayEffectSpec : IGameplayEffectSpec
             ComponentType.ReadOnly<PlayerAttributeCollectionComponent>(),
             ComponentType.ReadOnly<GameplayEffectSpecMagnitude>(),
             ComponentType.ReadOnly<TimeDurationComponent>(),
-            ComponentType.ReadOnly<DurationStateComponent>()
+            ComponentType.ReadOnly<DurationStateComponent>(),
+            ComponentType.ReadOnly<BlobAssetReference<StandardGameplayEffectBlob>>()
         };
     }
 }

@@ -32,6 +32,7 @@ public class DoDamageTest : MonoBehaviour
             });
 
             // TODO: CREATE DYNAMIC BUFFER OF ATTRIBUTE MODIFIERS ATTACHED TO THE GAMEPLAYEFFECT SPEC.  THE DYNAMIC BUFFER CREATE THE ATTRIBUTE MODIFIERS
+            // ALTERNATIVELY, HANDLE ATTRIBUTE CALCULATION ON MAIN THREAD (SOUNDS LIKE A BETTER APPROACH BECAUSE THIS CAN BE AS COMPLEX AS REQUIRED)
 
             // MyInstantAttributeUpdateSystem.CreateAttributeModifier(dstManager, new MyInstantGameplayAttributeModifier()
             // {
