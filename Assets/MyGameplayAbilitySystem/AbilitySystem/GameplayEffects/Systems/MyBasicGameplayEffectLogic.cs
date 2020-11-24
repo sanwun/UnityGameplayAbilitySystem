@@ -45,3 +45,7 @@ public class MyBasicGameplayEffectLogic : GameplayEffectApplicationSystem<MySimp
 }
 
 
+public struct GameplayEffectBlobComponent : IComponentData
+{
+    public BlobAssetReference<StandardGameplayEffectBlob> reference;
+}

@@ -10,8 +10,6 @@ namespace GameplayAbilitySystem.GameplayTags
     [CreateAssetMenu(fileName = "GameplayTag", menuName = "Gameplay Ability System/Gameplay Tags/Gameplay Tag", order = 1)]
     public partial class GameplayTagScriptableObject : ScriptableObject
     {
-        public string GameplayTagString;
-
         [SerializeField]
         public GameplayTag Tag;
     }
@@ -26,26 +24,13 @@ namespace GameplayAbilitySystem.GameplayTags
 
             // Assign name of SO to internal string for debugging
             GameplayTagScriptableObject[] selectedAsset = Selection.GetFiltered<GameplayTagScriptableObject>(SelectionMode.DeepAssets);
-            foreach (var asset in selectedAsset)
-            {
-                if (asset.GameplayTagString == "")
-                {
-                    asset.GameplayTagString = asset.name;
-                }
-            }
-
             // Order by name
-            selectedAsset = selectedAsset.OrderBy(x => x.GameplayTagString).ToArray();
+            selectedAsset = selectedAsset.OrderBy(x => x.name).ToArray();
 
             List<List<string>> Tags = new List<List<string>>() { new List<string>(), new List<string>(), new List<string>(), new List<string>() };
             foreach (GameplayTagScriptableObject obj in selectedAsset)
             {
-                if (obj.GameplayTagString == "")
-                {
-                    obj.GameplayTagString = obj.name;
-                }
-
-                var ids = obj.GameplayTagString.Split('.');
+                var ids = obj.name.Split('.');
                 byte[] tagIds = new byte[4];
 
                 var scriptableObject = (GameplayTagScriptableObject)obj;
@@ -71,6 +56,9 @@ namespace GameplayAbilitySystem.GameplayTags
                 scriptableObject.Tag.L1 = tagIds[1];
                 scriptableObject.Tag.L2 = tagIds[2];
                 scriptableObject.Tag.L3 = tagIds[3];
+
+                // Mark it dirty so Unity saves it do disk
+                EditorUtility.SetDirty(scriptableObject);
             }
         }
     }

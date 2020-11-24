@@ -1,4 +1,5 @@
 ﻿using Gamekit3D;
+using GameplayAbilitySystem.AttributeSystem.Components;
 using MyGameplayAbilitySystem;
 using Unity.Entities;
 using UnityEngine;

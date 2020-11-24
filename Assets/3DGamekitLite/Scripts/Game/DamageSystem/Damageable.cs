@@ -162,11 +162,11 @@ namespace Gamekit3D
             });
 
             // Create a poison effect, that does 1 damage every 1s tick
-            var poisonEntity = dstManager.CreateEntity(typeof(DotGameplayEffect), typeof(DurationStateComponent), typeof(TimeDurationComponent), typeof(GameplayEffectContextComponent));
-            dstManager.SetComponentData(poisonEntity, new DotGameplayEffect()
-            {
-                DamagePerTick = 1f
-            });
+            var poisonEntity = dstManager.CreateEntity(typeof(DurationStateComponent), typeof(TimeDurationComponent), typeof(GameplayEffectContextComponent));
+            // dstManager.SetComponentData(poisonEntity, new DotGameplayEffect()
+            // {
+            //     DamagePerTick = 1f
+            // });
 
             dstManager.SetComponentData(poisonEntity, new GameplayEffectContextComponent()
             {

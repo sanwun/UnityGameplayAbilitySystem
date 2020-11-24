@@ -1,3 +1,5 @@
+
+
 using Unity.Entities;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
@@ -14,7 +16,7 @@ public struct MySimpleGameplayEffectSpec : IGameplayEffectSpec
     public GameplayEffectSpecMagnitude EffectMagnitude;
     public TimeDurationComponent Time;
     public DurationStateComponent Duration;
-    public BlobAssetReference<StandardGameplayEffectBlob> GameplayEffectBlobAssetRef;
+    public MySimpleGameplayEffectBlob GameplayEffectBlobAssetRef;
     public ComponentType[] GetComponents()
     {
         return new[]
@@ -26,7 +28,13 @@ public struct MySimpleGameplayEffectSpec : IGameplayEffectSpec
             ComponentType.ReadOnly<GameplayEffectSpecMagnitude>(),
             ComponentType.ReadOnly<TimeDurationComponent>(),
             ComponentType.ReadOnly<DurationStateComponent>(),
-            ComponentType.ReadOnly<BlobAssetReference<StandardGameplayEffectBlob>>()
+            ComponentType.ReadOnly<MySimpleGameplayEffectBlob>()
         };
     }
 }
+
+public struct MySimpleGameplayEffectBlob : IComponentData
+{
+    public BlobAssetReference<StandardGameplayEffectBlob> reference;
+}
+
