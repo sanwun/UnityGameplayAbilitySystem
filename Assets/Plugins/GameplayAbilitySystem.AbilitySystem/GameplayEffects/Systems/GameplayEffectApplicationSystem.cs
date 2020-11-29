@@ -1,10 +1,9 @@
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
+using GameplayAbilitySystem.AbilitySystem.Common;
 
 public abstract class GameplayEffectApplicationSystem<TGameplayEffectSpec, TJob> : SystemBase
-where TGameplayEffectSpec : struct, IGameplayEffectSpec
+where TGameplayEffectSpec : struct, ISpecComponentProvider
 where TJob : struct, IJobChunk
 {
     EndSimulationEntityCommandBufferSystem m_EndSimulationEcbSystem;

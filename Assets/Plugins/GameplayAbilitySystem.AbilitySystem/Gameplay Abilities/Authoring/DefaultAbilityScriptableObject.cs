@@ -1,12 +1,21 @@
 using System;
+using GameplayAbilitySystem.AbilitySystem.Common;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.GameplayTags;
+using Unity.Entities;
 using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
 {
+    public struct DefaultAbilitySpec : ISpecComponentProvider
+    {
+        public ComponentType[] GetComponents()
+        {
+            throw new NotImplementedException();
+        }
+    }
     public abstract class DefaultAbilityScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : BaseAbility
-    where TGameplayEffectSpec : IGameplayEffectSpec
+    where TGameplayEffectSpec : IGameplayEffectIdentifier
     where TAttributeModifierEnum : System.Enum
     where TAttributeModifierOperatorEnum : System.Enum
     {
@@ -23,20 +32,10 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
         public GameplayTagScriptableObject[] TargetRequiredTags;
         public GameplayTagScriptableObject[] TargetBlockedTags;
         public GameplayTagEffectsTuple[] GameplayEffects;
-        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum>[] AbilityCost;
-        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum>[] AbilityCooldown;
+        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> AbilityCost;
+        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> AbilityCooldown;
         public bool ActivateAbilityOnGrant;
 
-        protected override bool TryActivateAbility()
-        {
-            if (!CanActivateAbility()) return false;
-
-            ActivateAbility();
-            CommitAbility();
-            ApplyGameplayEffects();
-            EndAbility();
-            return true;
-        }
 
         protected override void EndAbility()
         {
@@ -47,7 +46,7 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
             return false;
         }
 
-        protected override bool CanActivateAbility()
+        public override bool CanActivateAbility()
         {
             return false;
         }
@@ -67,14 +66,20 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
             return false;
         }
 
-        protected override bool PreActivate()
+        protected override void PreActivate()
         {
-            return false;
+            // Apply ability block and cancel tags
         }
 
-        public override bool ActivateAbility()
+        public override void ActivateAbility()
         {
-            return false;
+            PreActivate();
+            if (CommitAbility())
+            {
+                ApplyGameplayEffects();
+            }
+
+            EndAbility();
         }
 
         protected override bool CommitAbility()
@@ -100,6 +105,10 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
 
         }
 
+        public override float GetCooldownForAbility(AbilitySystemBehaviour abilitySystem)
+        {
+            return 0;
+        }
 
         [Serializable]
         public struct GameplayTagEffectsTuple

@@ -8,7 +8,7 @@ using UnityEngine;
 namespace GameplayAbilitySystem.GameplayTags
 {
     [CreateAssetMenu(fileName = "GameplayTag", menuName = "Gameplay Ability System/Gameplay Tags/Gameplay Tag", order = 1)]
-    public partial class GameplayTagScriptableObject : ScriptableObject
+    public class GameplayTagScriptableObject : ScriptableObject
     {
         [SerializeField]
         public GameplayTag Tag;

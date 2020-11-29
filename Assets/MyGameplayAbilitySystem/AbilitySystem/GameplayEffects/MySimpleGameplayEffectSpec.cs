@@ -4,10 +4,8 @@ using Unity.Entities;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
 using GameplayAbilitySystem.AttributeSystem.Components;
-using MyGameplayAbilitySystem;
-using System.ComponentModel;
 
-public struct MySimpleGameplayEffectSpec : IGameplayEffectSpec
+public struct MySimpleGameplayEffectSpec : IGameplayEffectIdentifier
 {
     public GameplayEffectGroupSharedComponent EffectGroupId;
     public GameplayEffectIdentifierComponent EffectId;

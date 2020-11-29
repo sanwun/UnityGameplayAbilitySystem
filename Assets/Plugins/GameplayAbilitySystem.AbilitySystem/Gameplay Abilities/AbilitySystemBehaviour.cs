@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects;
+using GameplayAbilitySystem.GameplayTags;
 using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.Abilities
@@ -9,14 +10,12 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities
     public class AbilitySystemBehaviour : MonoBehaviour
     {
         [SerializeReference]
-        private List<BaseAbility> Abilities;
-
-        [SerializeReference]
-        private List<BaseAbility> ActiveAbilities;
+        protected List<BaseAbility> GrantedAbilities;
+        protected HashSet<BaseAbility> ActiveAbilities;
 
         public bool IsAbilityGranted(BaseAbility ability)
         {
-            if (Abilities.FirstOrDefault(x => x == ability))
+            if (GrantedAbilities.FirstOrDefault(x => x == ability))
             {
                 return true;
             }
@@ -27,20 +26,27 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities
         {
             // If ability already exists, don't add it again
             if (IsAbilityGranted(ability)) return;
-            Abilities.Add(ability);
+            GrantedAbilities.Add(ability);
             ability.OnAvatarSet(this);
         }
 
         public void RemoveAbility(BaseAbility ability)
         {
-            Abilities.Remove(ability);
-            ActiveAbilities.Remove(ability);
+            GrantedAbilities.Remove(ability);
             ability.OnAvatarRemove(this);
         }
 
-        public void TryActivateAbility(BaseAbility ability)
+        public bool TryActivateAbility(BaseAbility ability)
         {
+            // If ability is already active, leave
+            if (ActiveAbilities.Contains(ability)) return false;
 
+            // Check ability logic to see if it is activatable
+            if (!ability.CanActivateAbility()) return false;
+            ability.ActivateAbility();
+            return true;
         }
+
     }
+
 }

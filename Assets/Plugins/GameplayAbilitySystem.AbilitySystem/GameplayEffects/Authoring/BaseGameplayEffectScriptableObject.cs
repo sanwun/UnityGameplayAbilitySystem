@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.AttributeSystem.Components;
+﻿using GameplayAbilitySystem.AttributeSystem.Components;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
 using UnityEngine;
@@ -8,7 +6,7 @@ using UnityEngine;
 namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
 {
     public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
-    where TGameplayEffectSpec : IGameplayEffectSpec
+    where TGameplayEffectSpec : IGameplayEffectIdentifier
     where TAttributeModifierEnum : System.Enum
     where TAttributeModifierOperatorEnum : System.Enum
     {
@@ -28,18 +26,25 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         public PeriodPolicy Period;
 
         [Header("Effect Tags")]
+        public GameplayEffectTags EffectTags;
+        public abstract TGameplayEffectSpec CreateGameplayEffect(TGameplayEffectSpec Spec);
+        public abstract Entity ApplyGameplayEffect(EntityManager dstManager, TGameplayEffectSpec GameplayEffectSpec);
+    }
+
+    public class GameplayEffectTags
+    {
         public GameplayTagScriptableObject[] AssetTags;
         public GameplayTagScriptableObject[] GrantedTags;
         public GameplayTagScriptableObject[] OngoingTagRequirements;
         public GameplayTagScriptableObject[] ApplicationTagRequirements;
         public GameplayTagScriptableObject[] RemoveGameplayEffectsWithTags;
         public GameplayTagScriptableObject[] GrantedApplicationImmunityTags;
-        public abstract TGameplayEffectSpec CreateGameplayEffect(TGameplayEffectSpec Spec);
-        public abstract Entity ApplyGameplayEffect(EntityManager dstManager, TGameplayEffectSpec GameplayEffectSpec);
     }
 
+
+
     public abstract class ModifierExecutionCalculation<TGameplayEffectSpec, TInstantAttributesModifier, TDurationalAttributesModifier> : ScriptableObject
-    where TGameplayEffectSpec : IGameplayEffectSpec
+    where TGameplayEffectSpec : IGameplayEffectIdentifier
     where TInstantAttributesModifier : IAttributeModifier
     where TDurationalAttributesModifier : IAttributeModifier
     {
