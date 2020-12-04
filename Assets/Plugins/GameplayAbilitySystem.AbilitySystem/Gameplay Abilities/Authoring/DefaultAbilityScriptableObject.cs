@@ -110,6 +110,13 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
             return 0;
         }
 
+        public override Entity CreateAbilitySpec(EntityManager dstManager)
+        {
+            var archetype = dstManager.CreateArchetype();
+            var entity = dstManager.CreateEntity(archetype);
+            return entity;
+        }
+
         [Serializable]
         public struct GameplayTagEffectsTuple
         {

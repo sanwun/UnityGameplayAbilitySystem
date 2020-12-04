@@ -43,6 +43,7 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
 
 
 
+
     public abstract class ModifierExecutionCalculation<TGameplayEffectSpec, TInstantAttributesModifier, TDurationalAttributesModifier> : ScriptableObject
     where TGameplayEffectSpec : IGameplayEffectIdentifier
     where TInstantAttributesModifier : IAttributeModifier

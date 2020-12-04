@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using GameplayAbilitySystem.GameplayTags;
+using Unity.Entities;
 using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
@@ -22,6 +23,8 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
         public abstract void OnAvatarRemove(AbilitySystemBehaviour abilitySystem);
         public abstract void OnGameplayAbilityEnded(AbilitySystemBehaviour abilitySystem);
         public abstract float GetCooldownForAbility(AbilitySystemBehaviour abilitySystem);
+
+        public abstract Entity CreateAbilitySpec(EntityManager dstManager);
 
         public void CreateSpec()
         {
