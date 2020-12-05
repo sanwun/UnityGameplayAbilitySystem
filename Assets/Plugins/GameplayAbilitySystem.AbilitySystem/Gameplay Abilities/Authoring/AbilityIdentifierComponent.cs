@@ -5,13 +5,22 @@ using GameplayAbilitySystem.GameplayTags;
 namespace GameplayAbilitySystem.AbilitySystem.Abilities
 {
 
-    public class AbilityIdentifierComponent : ConvertToAbilitySpec
+    public class AbilityIdentifierComponent : ConvertToSpec
     {
         public GameplayTagScriptableObject Id;
 
-        public override void Convert(EntityManager dstManager, Entity entity)
+        public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
-            throw new System.NotImplementedException();
+            dstManager.AddComponent<Component>(entity);
+            dstManager.SetComponentData(entity, new Component()
+            {
+                Tag = Id.Tag
+            });
+        }
+
+        public struct Component : IComponentData
+        {
+            public GameplayTag Tag;
         }
     }
 }

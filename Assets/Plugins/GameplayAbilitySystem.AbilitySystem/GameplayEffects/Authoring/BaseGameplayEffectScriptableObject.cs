@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
 {
-    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>
+    public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>, IComponentData
     where TGameplayEffectSpec : IGameplayEffectIdentifier
     where TAttributeModifierEnum : System.Enum
     where TAttributeModifierOperatorEnum : System.Enum
@@ -13,7 +13,7 @@ namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
         [Header("Effect Unique ID")]
         [Tooltip("Unique ID for this Effect")]
         [SerializeField]
-        public uint EffectId;
+        public GameplayTagScriptableObject Id;
 
         [Header("Grouping ID")]
         [Tooltip("Group ID for this Effect.  Used for controlling the effect logic.")]

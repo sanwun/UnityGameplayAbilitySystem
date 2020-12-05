@@ -4,15 +4,30 @@ using UnityEngine;
 namespace GameplayAbilitySystem.AbilitySystem.Abilities
 {
 
-    public class AbilityDefinitionComponent : ConvertToAbilitySpec
+    public class AbilityDefinitionComponent : ConvertToSpec
     {
         public string AbilityName;
         public string AbilityDescription;
         public Sprite Icon;
 
-        public override void Convert(EntityManager dstManager, Entity entity)
+        public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
-            throw new System.NotImplementedException();
+            dstManager.AddComponent<Component>(entity);
+            dstManager.SetComponentData<Component>(entity, new Component()
+            {
+                AbilityDescription = AbilityDescription,
+                AbilityName = AbilityName,
+                Icon = Icon
+            });
+        }
+
+        public class Component : IComponentData
+        {
+            public string AbilityName;
+            public string AbilityDescription;
+            public Sprite Icon;
         }
     }
+
+
 }

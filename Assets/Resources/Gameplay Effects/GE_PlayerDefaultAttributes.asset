@@ -12,61 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628414d0b0dc8a84e8ef734b4f34dfb2, type: 3}
   m_Name: GE_PlayerDefaultAttributes
   m_EditorClassIdentifier: 
-  EffectId: 0
+  Id: {fileID: 0}
+  GroupEffectId: 0
   Duration:
     DurationType: 0
     Duration: 10
   AttributeModifiers:
-  - InstantAttributes:
-      AddValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      MultiplyValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      DivideValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      OverrideValue:
-        Health: 10
-        MaxHealth: 10
-        Mana: 5
-        MaxMana: 5
-        Speed: 2
-    DurationalAttributes:
-      AddValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      MultiplyValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      DivideValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
-      OverrideValue:
-        Health: 0
-        MaxHealth: 0
-        Mana: 0
-        MaxMana: 0
-        Speed: 0
+  - Modifier: 0
+    Attribute: 0
+    ModificationValue: 0
     SourceRequiredTags: []
     SourceBlockedTags: []
     TargetRequiredTags: []
@@ -74,9 +28,3 @@ MonoBehaviour:
   Period:
     Period: 1
     ExecuteOnApplication: 0
-  AssetTags: []
-  GrantedTags: []
-  OngoingTagRequirements: []
-  ApplicationTagRequirements: []
-  RemoveGameplayEffectsWithTags: []
-  GrantedApplicationImmunityTags: []

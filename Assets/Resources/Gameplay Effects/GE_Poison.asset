@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 628414d0b0dc8a84e8ef734b4f34dfb2, type: 3}
   m_Name: GE_Poison
   m_EditorClassIdentifier: 
-  EffectId: 0
+  Id: {fileID: 11400000, guid: 080517ef674ff1e4ba9a0243fadc6694, type: 2}
+  GroupEffectId: 0
   Duration:
     DurationType: 1
     Duration: 10
@@ -27,9 +28,3 @@ MonoBehaviour:
   Period:
     Period: 1
     ExecuteOnApplication: 0
-  AssetTags: []
-  GrantedTags: []
-  OngoingTagRequirements: []
-  ApplicationTagRequirements: []
-  RemoveGameplayEffectsWithTags: []
-  GrantedApplicationImmunityTags: []
