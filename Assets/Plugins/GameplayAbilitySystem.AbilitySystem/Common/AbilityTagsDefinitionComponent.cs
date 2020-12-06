@@ -1,6 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 using GameplayAbilitySystem.GameplayTags;
+using GameplayAbilitySystem.AbilitySystem;
 
 namespace GameplayAbilitySystem.AbilitySystem
 {
