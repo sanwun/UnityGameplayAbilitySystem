@@ -8,6 +8,7 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities
     public class AbilityIdentifierComponent : ConvertToSpec
     {
         public GameplayTagScriptableObject Id;
+        public AbilityRegistryScriptableObject Registry;
 
         public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
@@ -16,6 +17,8 @@ namespace GameplayAbilitySystem.AbilitySystem.Abilities
             {
                 Tag = Id.Tag
             });
+
+            Registry.Add(Id.Tag, entity);
         }
 
         public struct Component : IComponentData

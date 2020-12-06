@@ -7,7 +7,7 @@ namespace GameplayAbilitySystem.GameplayTags
 {
     [Serializable]
     [StructLayout(LayoutKind.Explicit)]
-    public struct GameplayTag
+    public struct GameplayTag : IEquatable<GameplayTag>
     {
         [FieldOffset(0)]
         private uint Id;

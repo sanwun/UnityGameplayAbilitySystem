@@ -1,4 +1,5 @@
 using Unity.Entities;
+using GameplayAbilitySystem.AbilitySystem.Common;
 using GameplayAbilitySystem.AbilitySystem.Abilities;
 [assembly: RegisterGenericComponentType(typeof(AbilityTagsDefinitionComponent<IActivationRequiredTags>.Component))]
 

@@ -1,4 +1,5 @@
 using Gamekit3D;
+using GameplayAbilitySystem.AbilitySystem.Abilities;
 using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
 using GameplayAbilitySystem.AttributeSystem.Components;
 using MyGameplayAbilitySystem;
@@ -16,20 +17,22 @@ public class DoDamageTest : MonoBehaviour
     {
         if (Execute)
         {
-            var dstManager = Character.dstManager;
-            var archetype = dstManager.CreateArchetype(new MySimpleGameplayEffectSpec().GetComponents());
-            var sourceAttributes = dstManager.GetComponentData<AttributeValues>(Character.attributeEntity);
-            var entity = dstManager.CreateEntity(archetype);
-            dstManager.SetComponentData(entity, TimeDurationComponent.New(0, 10));
-            dstManager.SetComponentData(entity, new PlayerAttributeCollectionComponent()
-            {
-                Source = sourceAttributes
-            });
-            dstManager.SetComponentData(entity, new GameplayEffectContextComponent()
-            {
-                Source = Character.attributeEntity,
-                Target = Character.attributeEntity
-            });
+
+            // var dstManager = Character.dstManager;
+            // var archetype = dstManager.CreateArchetype(new MySimpleGameplayEffectSpec().GetComponents());
+            // var sourceAttributes = dstManager.GetComponentData<AttributeValues>(Character.attributeEntity);
+            // var entity = dstManager.CreateEntity(archetype);
+            // dstManager.SetComponentData(entity, TimeDurationComponent.New(0, 10));
+            // dstManager.SetComponentData(entity, new PlayerAttributeCollectionComponent()
+            // {
+            //     Source = sourceAttributes
+            // });
+            // dstManager.SetComponentData(entity, new GameplayEffectContextComponent()
+            // {
+            //     Source = Character.attributeEntity,
+            //     Target = Character.attributeEntity
+            // });
+
 
             // TODO: CREATE DYNAMIC BUFFER OF ATTRIBUTE MODIFIERS ATTACHED TO THE GAMEPLAYEFFECT SPEC.  THE DYNAMIC BUFFER CREATE THE ATTRIBUTE MODIFIERS
             // ALTERNATIVELY, HANDLE ATTRIBUTE CALCULATION ON MAIN THREAD (SOUNDS LIKE A BETTER APPROACH BECAUSE THIS CAN BE AS COMPLEX AS REQUIRED)
