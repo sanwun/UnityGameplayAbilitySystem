@@ -3,24 +3,23 @@ using Unity.Entities;
 using UnityEngine;
 namespace GameplayAbilitySystem.AbilitySystem
 {
-
     [DisallowMultipleComponent]
     public class AbilityCostComponent : ConvertToSpec
     {
         public GameplayTagScriptableObject GameplayEffect;
-
         public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
-            dstManager.AddComponent<AbilityCostRefComponent>(entity);
-            dstManager.SetComponentData<AbilityCostRefComponent>(entity, new AbilityCostRefComponent()
+            dstManager.AddComponent<Component>(entity);
+            if (Object.ReferenceEquals(GameplayEffect, null)) return;
+            dstManager.SetComponentData<Component>(entity, new Component()
             {
                 Id = GameplayEffect.Tag
             });
         }
+        public struct Component : IComponentData
+        {
+            public GameplayTag Id;
+        }
 
-    }
-    public struct AbilityCostRefComponent : IComponentData
-    {
-        public GameplayTag Id;
     }
 }
