@@ -1,4 +1,4 @@
-using GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects;
+using GameplayAbilitySystem.AbilitySystem;
 using MyGameplayAbilitySystem;
 using UnityEngine;
 

@@ -1,6 +1,6 @@
 using System;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     [Serializable]
     public struct PeriodPolicy

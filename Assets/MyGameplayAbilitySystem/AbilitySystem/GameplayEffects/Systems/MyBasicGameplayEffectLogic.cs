@@ -1,6 +1,5 @@
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.AttributeSystem.Components;
-using MyGameplayAbilitySystem;
+using GameplayAbilitySystem.AbilitySystem;
+using GameplayAbilitySystem.AttributeSystem;
 using Unity.Collections;
 using Unity.Entities;
 

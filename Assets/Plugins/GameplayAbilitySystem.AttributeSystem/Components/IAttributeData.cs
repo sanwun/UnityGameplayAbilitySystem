@@ -1,4 +1,4 @@
-namespace GameplayAbilitySystem.AttributeSystem.Components
+namespace GameplayAbilitySystem.AttributeSystem
 {
     public interface IAttributeData { }
 

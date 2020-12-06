@@ -1,9 +1,8 @@
 
 
 using Unity.Entities;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.AttributeSystem.Components;
+using GameplayAbilitySystem.AttributeSystem;
+using GameplayAbilitySystem.AbilitySystem;
 
 public struct MySimpleAbilitySpec : IGameplayEffectIdentifier
 {

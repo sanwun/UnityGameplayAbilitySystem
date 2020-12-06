@@ -1,4 +1,3 @@
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.GameplayTags;
 
 public class MeleeAttackAbility

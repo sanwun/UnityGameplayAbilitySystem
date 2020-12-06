@@ -3,7 +3,7 @@ using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public abstract class GameplayEffectConversionSystem<TGameplayEffect, TGameplayEffectBlob> : GameObjectConversionSystem
     where TGameplayEffect : ScriptableObject

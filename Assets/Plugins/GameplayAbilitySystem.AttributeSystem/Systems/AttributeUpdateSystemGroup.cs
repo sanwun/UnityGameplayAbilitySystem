@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace GameplayAbilitySystem.AttributeSystem.Systems
+namespace GameplayAbilitySystem.AttributeSystem
 {
     public class AttributeUpdateSystemGroup : ComponentSystemGroup { }
 }

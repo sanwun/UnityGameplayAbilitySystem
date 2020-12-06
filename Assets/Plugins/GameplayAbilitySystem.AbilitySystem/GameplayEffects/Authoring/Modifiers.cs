@@ -1,7 +1,7 @@
 using System;
 using GameplayAbilitySystem.GameplayTags;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     [Serializable]
     public struct Modifiers<TAttributeModifierEnum, TAttributeModifierOperatorEnum>

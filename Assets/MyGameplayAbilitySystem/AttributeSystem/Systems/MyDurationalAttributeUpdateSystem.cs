@@ -1,5 +1,4 @@
-using GameplayAbilitySystem.AttributeSystem.Components;
-using GameplayAbilitySystem.AttributeSystem.Systems;
+using GameplayAbilitySystem.AttributeSystem;
 using Unity.Entities;
 
 namespace MyGameplayAbilitySystem

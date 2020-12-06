@@ -1,4 +1,4 @@
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IStackableGameplayEffect
     {

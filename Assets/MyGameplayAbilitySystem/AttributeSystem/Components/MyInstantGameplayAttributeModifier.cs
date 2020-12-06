@@ -1,7 +1,5 @@
-using GameplayAbilitySystem.AttributeSystem.Components;
+using GameplayAbilitySystem.AttributeSystem;
 using Unity.Entities;
-using Unity.Mathematics;
-
 namespace MyGameplayAbilitySystem
 {
     public struct MyInstantGameplayAttributeModifier : IComponentData, IGameplayAttributeModifier<MyInstantAttributeModifierValues>

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components
+namespace GameplayAbilitySystem.AbilitySystem
 {
     [Flags]
     public enum EDurationState : byte

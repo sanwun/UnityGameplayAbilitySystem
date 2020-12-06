@@ -1,6 +1,6 @@
 using Unity.Collections;
 
-namespace GameplayAbilitySystem.AttributeSystem.Components
+namespace GameplayAbilitySystem.AttributeSystem
 {
     public interface IAttributeExecute<TAttribute, TInstantAttributeModifier, TDurationalAttributeModifier>
     where TAttribute : struct, IAttributeData

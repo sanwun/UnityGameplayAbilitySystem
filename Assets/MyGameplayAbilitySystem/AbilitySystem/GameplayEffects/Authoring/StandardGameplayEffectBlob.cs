@@ -1,4 +1,4 @@
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
+using GameplayAbilitySystem.AbilitySystem;
 using GameplayAbilitySystem.GameplayTags;
 using MyGameplayAbilitySystem;
 

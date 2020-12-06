@@ -1,9 +1,9 @@
-﻿using GameplayAbilitySystem.AttributeSystem.Components;
+﻿using GameplayAbilitySystem.AttributeSystem;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public abstract class BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ScriptableObject, IGameplayEffectAuthorer<TGameplayEffectSpec>, IComponentData
     where TGameplayEffectSpec : IGameplayEffectIdentifier

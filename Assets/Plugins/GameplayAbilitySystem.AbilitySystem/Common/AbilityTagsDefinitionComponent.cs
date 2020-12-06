@@ -2,7 +2,7 @@ using Unity.Entities;
 using UnityEngine;
 using GameplayAbilitySystem.GameplayTags;
 
-namespace GameplayAbilitySystem.AbilitySystem.Common
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IAbilityTagDefinition { }
 

@@ -2,7 +2,7 @@ using Unity.Entities;
 using UnityEngine;
 using GameplayAbilitySystem.GameplayTags;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
 
     public class AbilityIdentifierComponent : ConvertToSpec

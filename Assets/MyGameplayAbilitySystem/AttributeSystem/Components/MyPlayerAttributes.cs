@@ -1,7 +1,5 @@
 using System;
-using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using GameplayAbilitySystem.AttributeSystem.Components;
 using Unity.Entities;
 
 namespace MyGameplayAbilitySystem

@@ -1,5 +1,4 @@
-using System.Linq;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
+using GameplayAbilitySystem.AbilitySystem;
 using Unity.Collections;
 using Unity.Entities;
 

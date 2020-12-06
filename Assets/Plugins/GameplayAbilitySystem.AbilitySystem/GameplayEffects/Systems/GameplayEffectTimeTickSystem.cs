@@ -1,9 +1,7 @@
-﻿using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using Unity.Collections;
+﻿using Unity.Collections;
 using Unity.Entities;
-using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Systems
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public class GameplayEffectTimeTickSystem : SystemBase
     {

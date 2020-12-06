@@ -1,9 +1,7 @@
 using System.Runtime.CompilerServices;
-using GameplayAbilitySystem.AttributeSystem.Systems;
-using GameplayAbilitySystem.AttributeSystem.Components;
+using GameplayAbilitySystem.AttributeSystem;
 using Unity.Collections;
 using Unity.Entities;
-using Unity.Jobs;
 using Unity.Mathematics;
 
 namespace MyGameplayAbilitySystem

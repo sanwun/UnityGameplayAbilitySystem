@@ -1,11 +1,8 @@
-using System.Collections.Generic;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
-using GameplayAbilitySystem.AttributeSystem.Components;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public abstract class BaseAbility : ScriptableObject
     {

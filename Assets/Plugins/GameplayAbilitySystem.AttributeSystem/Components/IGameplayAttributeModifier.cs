@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace GameplayAbilitySystem.AttributeSystem.Components
+namespace GameplayAbilitySystem.AttributeSystem
 {
     public interface IGameplayAttributeModifier<TAttributeModifier>
     where TAttributeModifier : struct, IAttributeModifier, IComponentData

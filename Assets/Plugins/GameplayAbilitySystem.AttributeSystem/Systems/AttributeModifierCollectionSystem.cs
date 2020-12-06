@@ -1,10 +1,8 @@
 ﻿using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
-using GameplayAbilitySystem.AttributeSystem.Components;
-using UnityEngine;
 
-namespace GameplayAbilitySystem.AttributeSystem.Systems
+namespace GameplayAbilitySystem.AttributeSystem
 {
     public class AttributeModifierCollectionSystem<TAttributeModifier, TGameplayAttributesModifier, TComponentTag> : SystemBase
     where TAttributeModifier : struct, IComponentData, IAttributeModifier

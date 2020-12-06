@@ -1,11 +1,8 @@
-﻿using System.Dynamic;
-using Unity.Burst;
+﻿using Unity.Burst;
 using Unity.Collections;
 using Unity.Entities;
-using GameplayAbilitySystem.AttributeSystem.Components;
-using UnityEngine;
 
-namespace GameplayAbilitySystem.AttributeSystem.Systems
+namespace GameplayAbilitySystem.AttributeSystem
 {
     [UpdateInGroup(typeof(AttributeUpdateSystemGroup))]
     public class AttributeUpdateSystem<TAttributeValues, TInstantAttributeModifier, TDurationalAttributeModifier, TJobExecutable> : SystemBase

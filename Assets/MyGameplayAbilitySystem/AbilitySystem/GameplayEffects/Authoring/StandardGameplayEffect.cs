@@ -1,14 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.GameplayTags;
-using Unity.Collections;
+﻿using GameplayAbilitySystem.AbilitySystem;
 using Unity.Entities;
 using UnityEngine;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
-using GameplayAbilitySystem.AttributeSystem.Components;
-using Gamekit3D;
 using MyGameplayAbilitySystem;
+using GameplayAbilitySystem.AttributeSystem;
 
 [CreateAssetMenu(fileName = "GameplayEffect", menuName = "My Gameplay Ability System/Gameplay Effects/Standard")]
 public class StandardGameplayEffect : BaseGameplayEffectScriptableObject<MySimpleGameplayEffectSpec, EMyPlayerAttribute, EMyAttributeModifierOperator>

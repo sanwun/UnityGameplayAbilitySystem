@@ -1,11 +1,10 @@
 using System;
-using GameplayAbilitySystem.AbilitySystem.Common;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
+using GameplayAbilitySystem.AbilitySystem;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public struct DefaultAbilitySpec : ISpecComponentProvider
     {

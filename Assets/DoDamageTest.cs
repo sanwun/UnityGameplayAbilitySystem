@@ -1,10 +1,3 @@
-using Gamekit3D;
-using GameplayAbilitySystem.AbilitySystem.Abilities;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.AttributeSystem.Components;
-using MyGameplayAbilitySystem;
-using Unity.Entities;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class DoDamageTest : MonoBehaviour
@@ -42,7 +35,7 @@ public class DoDamageTest : MonoBehaviour
             //     Attribute = EMyPlayerAttribute.Health,
             //     Operator = EMyAttributeModifierOperator.Add,
             //     Value = AddValue
-            // }, new GameplayAbilitySystem.AttributeSystem.Components.GameplayEffectContextComponent()
+            // }, new GameplayAbilitySystem.AttributeSystem.GameplayEffectContextComponent()
             // {
             //     Source = Entity.Null,
             //     Target = Character.attributeEntity

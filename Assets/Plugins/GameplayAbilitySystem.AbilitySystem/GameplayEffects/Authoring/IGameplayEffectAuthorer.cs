@@ -1,7 +1,6 @@
-using GameplayAbilitySystem.AbilitySystem.Common;
 using Unity.Entities;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IGameplayEffectAuthorer<T>
     where T : ISpecComponentProvider

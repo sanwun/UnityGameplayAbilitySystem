@@ -1,6 +1,6 @@
 ﻿using Unity.Entities;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public struct StackingPolicyOnApplyComponent : IComponentData, IStackableGameplayEffect
     {

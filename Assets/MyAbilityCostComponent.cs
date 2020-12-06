@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using GameplayAbilitySystem.AbilitySystem.Abilities;
+using GameplayAbilitySystem.AbilitySystem;
 using MyGameplayAbilitySystem;
 using UnityEngine;
 

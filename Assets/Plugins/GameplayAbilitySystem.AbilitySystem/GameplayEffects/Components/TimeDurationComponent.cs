@@ -1,7 +1,7 @@
 using System.Runtime.CompilerServices;
 using Unity.Entities;
 
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components
+namespace GameplayAbilitySystem.AbilitySystem
 {
     /// <summary>
     /// Represents real-time ticks

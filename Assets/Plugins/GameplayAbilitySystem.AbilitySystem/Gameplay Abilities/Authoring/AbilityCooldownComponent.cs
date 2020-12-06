@@ -1,9 +1,8 @@
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
 
     public class AbilityCooldownComponent<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ConvertToSpec

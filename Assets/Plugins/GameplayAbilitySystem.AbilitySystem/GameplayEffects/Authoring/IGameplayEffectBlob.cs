@@ -1,4 +1,4 @@
-namespace GameplayAbilitySystem.AbilitySystem.GameplayEffects.ScriptableObjects
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IGameplayEffectBlob { }
 

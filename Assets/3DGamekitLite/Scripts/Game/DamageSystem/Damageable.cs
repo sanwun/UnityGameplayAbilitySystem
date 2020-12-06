@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Gamekit3D.Message;
@@ -7,8 +6,8 @@ using UnityEngine.Serialization;
 using Unity.Entities;
 using MyGameplayAbilitySystem;
 using Unity.Mathematics;
-using GameplayAbilitySystem.AbilitySystem.GameplayEffects.Components;
-using GameplayAbilitySystem.AttributeSystem.Components;
+using GameplayAbilitySystem.AbilitySystem;
+using GameplayAbilitySystem.AttributeSystem;
 
 namespace Gamekit3D
 {
@@ -155,7 +154,7 @@ namespace Gamekit3D
                 Attribute = EMyPlayerAttribute.Health,
                 Operator = EMyAttributeModifierOperator.Add,
                 Value = (half)(-data.amount)
-            }, new GameplayAbilitySystem.AttributeSystem.Components.GameplayEffectContextComponent()
+            }, new GameplayAbilitySystem.AttributeSystem.GameplayEffectContextComponent()
             {
                 Source = Entity.Null,
                 Target = Entity.Null

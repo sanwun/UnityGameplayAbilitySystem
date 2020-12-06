@@ -1,9 +1,8 @@
 using Unity.Entities;
-using GameplayAbilitySystem.AbilitySystem.Common;
-using GameplayAbilitySystem.AbilitySystem.Abilities;
+using GameplayAbilitySystem.AbilitySystem;
 [assembly: RegisterGenericComponentType(typeof(AbilityTagsDefinitionComponent<IActivationOwnedTags>.Component))]
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IActivationOwnedTags : IAbilityTagDefinition { }
 

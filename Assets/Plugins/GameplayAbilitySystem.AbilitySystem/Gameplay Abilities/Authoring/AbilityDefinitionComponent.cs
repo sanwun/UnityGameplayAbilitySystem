@@ -1,7 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
 
     public class AbilityDefinitionComponent : ConvertToSpec

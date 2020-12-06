@@ -1,9 +1,8 @@
 using Unity.Entities;
-using GameplayAbilitySystem.AbilitySystem.Common;
-using GameplayAbilitySystem.AbilitySystem.Abilities;
+using GameplayAbilitySystem.AbilitySystem;
 [assembly: RegisterGenericComponentType(typeof(AbilityTagsDefinitionComponent<IActivationBlockedTags>.Component))]
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface IActivationBlockedTags : IAbilityTagDefinition { }
 

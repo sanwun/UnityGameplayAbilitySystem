@@ -1,6 +1,6 @@
 using Unity.Entities;
 
-namespace GameplayAbilitySystem.AbilitySystem.Common
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public interface ISpecComponentProvider
     {

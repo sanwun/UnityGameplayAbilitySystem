@@ -1,11 +1,9 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using GameplayAbilitySystem.AbilitySystem.Abilities.ScriptableObjects;
-using GameplayAbilitySystem.GameplayTags;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
     public class AbilitySystemBehaviour : MonoBehaviour
     {

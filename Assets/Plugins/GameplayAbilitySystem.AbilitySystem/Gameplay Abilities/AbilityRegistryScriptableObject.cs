@@ -4,7 +4,7 @@ using Unity.Collections;
 using Unity.Entities;
 using UnityEngine;
 
-namespace GameplayAbilitySystem.AbilitySystem.Abilities
+namespace GameplayAbilitySystem.AbilitySystem
 {
     [CreateAssetMenu(fileName = "Ability Registry", menuName = "My Gameplay Ability System/Abilities/Registry")]
     public class AbilityRegistryScriptableObject : ScriptableObject

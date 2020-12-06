@@ -3,7 +3,6 @@ using Gamekit3D.Message;
 using System.Collections;
 using Unity.Entities;
 using UnityEngine.XR.WSA;
-using GameplayAbilitySystem.AttributeSystem.Components;
 
 namespace Gamekit3D
 {
