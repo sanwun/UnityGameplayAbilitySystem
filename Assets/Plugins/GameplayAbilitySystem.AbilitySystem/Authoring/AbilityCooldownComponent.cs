@@ -5,20 +5,17 @@ using UnityEngine;
 namespace GameplayAbilitySystem.AbilitySystem
 {
 
-    public class AbilityCooldownComponent<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ConvertToSpec
-    where TGameplayEffectSpec : IGameplayEffectIdentifier
-    where TAttributeModifierEnum : System.Enum
-    where TAttributeModifierOperatorEnum : System.Enum
+    [DisallowMultipleComponent]
+    public class AbilityCooldownComponent : ConvertToSpec
     {
-        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> AbilityCost;
-
+        public GameplayTagScriptableObject GameplayEffect;
         public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
             dstManager.AddComponent<AbilityCooldownRefComponent>(entity);
-            if (Object.ReferenceEquals(AbilityCost, null)) return;
+            if (Object.ReferenceEquals(GameplayEffect, null)) return;
             dstManager.SetComponentData<AbilityCooldownRefComponent>(entity, new AbilityCooldownRefComponent()
             {
-                Id = AbilityCost.Id.Tag
+                Id = GameplayEffect.Tag
             });
         }
     }

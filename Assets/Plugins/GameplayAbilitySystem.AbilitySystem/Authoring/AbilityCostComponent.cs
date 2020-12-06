@@ -4,19 +4,17 @@ using UnityEngine;
 namespace GameplayAbilitySystem.AbilitySystem
 {
 
-    public class AbilityCostComponent<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> : ConvertToSpec
-    where TGameplayEffectSpec : IGameplayEffectIdentifier
-    where TAttributeModifierEnum : System.Enum
-    where TAttributeModifierOperatorEnum : System.Enum
+    [DisallowMultipleComponent]
+    public class AbilityCostComponent : ConvertToSpec
     {
-        public BaseGameplayEffectScriptableObject<TGameplayEffectSpec, TAttributeModifierEnum, TAttributeModifierOperatorEnum> AbilityCost;
+        public GameplayTagScriptableObject GameplayEffect;
 
         public override void CreateSpec(Entity entity, EntityManager dstManager)
         {
             dstManager.AddComponent<AbilityCostRefComponent>(entity);
             dstManager.SetComponentData<AbilityCostRefComponent>(entity, new AbilityCostRefComponent()
             {
-                Id = AbilityCost.Id.Tag
+                Id = GameplayEffect.Tag
             });
         }
 

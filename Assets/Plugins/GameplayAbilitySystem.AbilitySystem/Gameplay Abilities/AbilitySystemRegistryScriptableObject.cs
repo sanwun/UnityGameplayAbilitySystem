@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using GameplayAbilitySystem.GameplayTags;
 using Unity.Entities;
@@ -7,6 +8,7 @@ namespace GameplayAbilitySystem.AbilitySystem
 {
     public abstract class AbilitySystemRegistryScriptableObject : ScriptableObject
     {
+
         private Dictionary<GameplayTag, Entity> Registry = new Dictionary<GameplayTag, Entity>();
 
         public Entity Get(GameplayTag tag)
